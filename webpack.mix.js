@@ -11,5 +11,22 @@ const mix = require('laravel-mix');
  |
  */
 
+var paths = {
+   'webix': './node_modules/webix/'}
+
 mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+   //.sass('resources/sass/app.scss', 'public/css');
+   mix.js([
+      paths.webix + 'webix.js',
+  ], 'public/js/webix.js');
+
+   mix.sass('resources/sass/app.scss', 'public/css')
+   .options({
+        postCss: [
+            require('postcss-css-variables')()
+        ]
+   });
+
+   mix.styles([
+      paths.webix + 'webix.css',
+  ], 'public/css/webix.css');
