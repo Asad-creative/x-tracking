@@ -16,6 +16,11 @@ Route::get('/', function () {
 });
 
 
+Route::get('/webix/datatable', function () {
+    return view('webix.datatable');
+});
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
