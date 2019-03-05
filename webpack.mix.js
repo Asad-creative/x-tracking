@@ -16,9 +16,11 @@ var paths = {
 
 mix.js('resources/js/app.js', 'public/js')
    //.sass('resources/sass/app.scss', 'public/css');
-   mix.js([
-      paths.webix + 'webix.js',
-  ], 'public/js/webix.js');
+//    mix.js([
+//       paths.webix + 'webix.js',
+//   ], 'public/js/webix.min.js');
+
+mix.copy(paths.webix + 'webix.js', 'public/js/webix.js');
 
    mix.sass('resources/sass/app.scss', 'public/css')
    .options({
