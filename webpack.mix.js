@@ -21,6 +21,7 @@ mix.js('resources/js/app.js', 'public/js')
 //   ], 'public/js/webix.min.js');
 
 mix.copy(paths.webix + 'webix.js', 'public/js/webix.js');
+mix.copy(paths.webix + 'fonts', 'public/fonts');
 
    mix.sass('resources/sass/app.scss', 'public/css')
    .options({
