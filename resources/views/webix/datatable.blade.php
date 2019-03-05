@@ -3,21 +3,37 @@
 @section('content')
 	<link rel="stylesheet" href="{{ asset('css/webix.css') }}" type="text/css">
     <script src="{{ asset('js/webix.js') }}" type="text/javascript"></script>
-	<div id="box" style="width:1200px;height:600px;margin: 0 auto;"></div>
+
+		<div id="box" style="width:1200px;height:430px;margin: 0 auto;"></div>
+		<div id="paging_here" style="margin-left: 10%;"></div>
+	
     <script type="text/javascript" charset="utf-8">
-    webix.ready(function(){
-    	dtable = new webix.ui({
+    	
+    	/*webix.locale.pager = {
+		    first: "First", // the first button
+		    last:  "Last", // the last button
+		    next:  "Next", // the next button
+		    prev:  "Prev"  // the previous button
+		};*/
+
+    	webix.ui({
 		    container:"box",
 		    view:"datatable",
+		    pager:{
+		        template:"{common.first()} {common.prev()} {common.pages()} {common.next()} {common.last()}",
+		        container:"paging_here",
+		        size:10,
+		        group:5
+		    },
 		    columns:[
-		        { id:"ref",   		header:"Ref",    		width:100, sort:"int"},
-		        { id:"title",    	header:"Title" , 		width:250, sort:"string"},
-		        { id:"team",   		header:"Team",         	width:200, sort:"string"},
-		        { id:"client",  	header:"Client",        width:100, sort:"string"},
-		        { id:"pm",    		header:"PM",          	width:100, sort:"string"},
-		        { id:"status",    	header:"Status",        width:100, sort:"string"},
-		        { id:"deadline",    header:"Deadline",      width:100, sort:"string"},
-		        { id:"date-sent",   header:"Date Sent",     width:100, sort:"string"}
+		        { id:"ref",   		header:[ "Ref",{content:"textFilter"}], 			width:70, sort:"int"},
+		        { id:"title",		header:[ "Title",{content:"textFilter"}], 			width:250, sort:"string" },
+		        { id:"team",   		header:[ "Team",{content:"textFilter"}],          	width:200, sort:"string"},
+		        { id:"client",  	header:[ "Client",{content:"textFilter"}],         	width:120, sort:"string"},
+		        { id:"pm",    		header:[ "PM",{content:"textFilter"}],         		width:120, sort:"string"},
+		        { id:"status",    	header:[ "Status",{content:"textFilter"}],       	width:120, sort:"string"},
+		        { id:"deadline",    header:[ "Deadline",{content:"textFilter"}],      	width:150, sort:"string"},
+		        { id:"date-sent",   header:[ "Date Sent",{content:"textFilter"}],     	width:150, sort:"string"}
 		    ],
 		    data:[
 		        {
@@ -1122,6 +1138,6 @@
 				  }
 		    ]
 		});
-	});
+	
     </script>
 @endsection
