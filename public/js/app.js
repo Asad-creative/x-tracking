@@ -49148,8 +49148,13 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! E:\projects\Xergy\x-tracking\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! E:\projects\Xergy\x-tracking\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! D:\xampp\htdocs\x-tracking\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\xampp\htdocs\x-tracking\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> 734288b00289b60a80a6116bb950be0450917b68
 
 
 /***/ })
