@@ -12,19 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    return view('dashboard');
 });
 
 
 Route::get('/webix/datatable', function () {
     return view('webix.datatable');
 });
-
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
-
 
 Auth::routes();
 

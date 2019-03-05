@@ -93,7 +93,7 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a> -->
 
-                    <a href="{{ url('/webix/datatable') }}">Webix Datable</a>
+                    <a href="{{ url('/webix/datatable') }}">Webix Datatable</a>
                     <a href="">Webix Tree</a>
                     <a href="">Webix Organogram</a>
                     <a href="">Webix Gantt</a>
