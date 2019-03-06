@@ -21,6 +21,13 @@ Route::get('/webix/datatable', function () {
     return view('webix.datatable');
 });
 
+Route::get('webix/dynamic/datatable', function () {
+    return view('webix.dynamic-datatable');
+});
+
+Route::get('/webix/get/datatable', 'HomeController@datatable');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
