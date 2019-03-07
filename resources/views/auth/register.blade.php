@@ -61,20 +61,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                        <label for="fqdn" class="col-md-4 col-form-label text-md-right">Client Name</label>
-
-                        <div class="col-md-6">
-                            <input id="database" type="database" class="form-control{{ $errors->has('database') ? ' is-invalid' : '' }}" name="database" value="{{ old('database') }}" required>
-
-                            @if ($errors->has('database'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('database') }}</strong>
-                                </span>
-                            @endif
-                        </div>
-                    </div>
-
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

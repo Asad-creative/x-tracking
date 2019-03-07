@@ -1,5 +1,5 @@
 <?php
-
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,6 +33,8 @@ Route::group([
 	    return view('webix.organogram');
 	});
 });
+
+
 
 Auth::routes();
 
