@@ -12,8 +12,6 @@ use App\User;
 */
 
 Route::get('/', function () {
-    print_r(User::all());
-    exit;
     return view('welcome');
 });
 
