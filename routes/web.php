@@ -1,5 +1,5 @@
 <?php
-
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,8 +12,12 @@
 */
 
 Route::get('/', function () {
+    print_r(User::all());
+    exit;
     return view('welcome');
 });
+
+
 
 
 Auth::routes();
