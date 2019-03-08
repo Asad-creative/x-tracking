@@ -13,7 +13,7 @@ use App\User;
 
 Route::get('/', function () {
     //return view('welcome');
-    return view('dashboard');
+    return view('Proteus');
 });
 
 Route::group([
@@ -33,6 +33,9 @@ Route::group([
 	    return view('webix.organogram');
 	});
 });
+
+Route::get('/webix/get/datatable', 'HomeController@datatable');
+
 
 
 

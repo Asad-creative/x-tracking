@@ -14,21 +14,17 @@ const mix = require('laravel-mix');
 var paths = {
    'webix': './node_modules/webix/'}
 
-mix.js('resources/js/app.js', 'public/js')
-   //.sass('resources/sass/app.scss', 'public/css');
-   /*mix.js([
-      paths.webix + 'webix.js',
-  ], 'public/js/webix.js');*/
-  mix.copy(paths.webix + 'webix.js', 'public/js/webix.js');
-  mix.copy(paths.webix + 'fonts', 'public/css/fonts');
+   mix.js('resources/js/app.js', 'public/js')
+   mix.copy(paths.webix + 'webix.js', 'public/js/webix.js');
+   mix.copy(paths.webix + 'fonts', 'public/css/fonts');
 
-   mix.sass('resources/sass/app.scss', 'public/css')
+   mix.sass('resources/sass/app.scss', 'public/css/proteus.css')
    .options({
         postCss: [
             require('postcss-css-variables')()
         ]
    });
-
-   mix.styles([
-      paths.webix + 'webix.css',
-  ], 'public/css/webix.css');
+   
+//    mix.styles([
+//       paths.webix + 'webix.css',
+//   ], 'public/css/webix.css');
