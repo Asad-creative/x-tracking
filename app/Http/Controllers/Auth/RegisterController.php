@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Hyn\Tenancy\Contracts\Repositories\HostnameRepository;
 use Hyn\Tenancy\Contracts\Repositories\WebsiteRepository;
+
 use Illuminate\Http\Request;
+use Request as URLRequest;
 use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
@@ -89,6 +91,7 @@ class RegisterController extends Controller
         | CREATE THE WEBSITE
         |--------------------------------------------------------------------------
          */
+
         $website = new Website(['uuid' => $data['database']]);
 
         app(WebsiteRepository::class)->create($website);
@@ -99,7 +102,8 @@ class RegisterController extends Controller
         | CREATE THE HOSTNAME
         |--------------------------------------------------------------------------
          */
-        $hostname = new Hostname(['fqdn' => $data['domain']]);
+        $subDomain    = $this->createSubdomain($data['domain']);
+        $hostname = new Hostname(['fqdn' => $subDomain]);
         app(HostnameRepository::class)->attach($hostname, $website);
 
         return $user;
@@ -115,5 +119,12 @@ class RegisterController extends Controller
 
         return $this->registered($request, $user)
                         ?: redirect($this->redirectPath());
+    }
+
+    public function createSubdomain($domain)
+    {
+      $subDomain = $domain.'.'.URLRequest::getHost();
+
+      return $subDomain;
     }
 }
