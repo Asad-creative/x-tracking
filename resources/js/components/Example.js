@@ -75,7 +75,7 @@ export default class Example extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://localhost/x-tracking/public/data.json").then(resp => {
+        axios.get("../data.json").then(resp => {
             const getShowData = resp.data.map(item => {
                 return {
                     ref: item.ref,
