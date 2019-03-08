@@ -9,11 +9,11 @@
     <!-- You can get this file from https://github.com/webix-hub/components -->
 	<script src="https://cdn.webix.com/components/edge/gantt/gantt.js"></script>
 
-    	<div style="margin-left: 11%;">
+    	<!-- <div style="margin-left: 11%;">
     		<a class="btn btn-danger" href="{{ url('webix/gantt') }}">Client Side Gantt</a>
     		<a class="btn btn-danger" href="{{ url('webix/dynamic/gantt') }}">Dynamic Gantt</a>
     	</div>
-    	<br>
+    	<br> -->
 		<!-- <div id="box" style="width:1200px;height:470px;margin: 0 auto;"></div> -->
 	
     <script type="text/javascript" charset="utf-8">

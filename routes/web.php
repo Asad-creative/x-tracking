@@ -40,9 +40,6 @@ Route::group([
 
 Route::get('/webix/get/datatable', 'HomeController@datatable');
 
-
-
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
