@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\User;
+use Auth;
 class HomeController extends Controller
 {
     /**
@@ -23,6 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        $users = User::select('name','email','created_at')->where('id',"!=",Auth::id())->get()->toArray();
+        return view('home',["users"=>$users]);
     }
 }
