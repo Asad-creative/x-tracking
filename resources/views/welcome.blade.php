@@ -5,95 +5,90 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
-
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css')}}">
+<script type="text/javascript" src="{{ asset('js/app.js')}}"></script>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
         <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
     </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
+    <body class="theme-light">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown link
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
                 </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                </li>
+            </ul>
+            </div>
+        </nav>
+        <div class="jumbotron">
+            <div class="display-4">Pakistani laravel Demo</div>
+            <p class="lead text-md-left ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        <button class="btn btn-primary btn-lg">View Details</button>
+        </div>
+        <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-4 ">
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h1 class="card-title">Title</h1>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's </p>
+                    <a href="" class="btn btn-primary btn-lg">Read More</a>
                 </div>
             </div>
+        </div>            
+        <div class="col-sm-12 col-md-6 col-lg-4  ">
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h1 class="card-title">Title</h1>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's </p>
+                    <a href="" class="btn btn-primary btn-lg">Read More</a>
+                </div>
+            </div>
+        </div> 
+        <div class="col-sm-12 col-md-6 col-lg-4 ">
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h1 class="card-title">Title</h1>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's </p>
+                    <a href="" class="btn btn-primary btn-lg">Read More</a>
+                </div>
+            </div>
+        </div> 
         </div>
+
+        <div class="row mt-sm-0 mt-md-2">
+        <div class="col-sm-12 col-md-4">
+                Main Container right 
+            </div>
+            <div class="col-sm-12 col-md-8 mr-auto">
+                <h2>Mian container</h2>
+                <p class=" text-justify">
+                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                </p>
+            </div>
+           
+        </div>
+    </div>
     </body>
 </html>

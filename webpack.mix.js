@@ -32,3 +32,5 @@ mix.js('resources/js/app.js', 'public/js')
    mix.styles([
       paths.webix + 'webix.css',
   ], 'public/css/webix.css');
+
+   mix.copyDirectory('resources/images', 'public/images');
