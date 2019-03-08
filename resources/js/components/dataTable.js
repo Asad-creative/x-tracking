@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import Webix from "./Webix";
 import axios from "axios";
 
-function getUI(select) {
+function getUI() {
     return {
         view: "datatable",
         container: "box",
@@ -11,31 +11,22 @@ function getUI(select) {
             template: `{common.first()} {common.prev()} {common.pages()} 
             {common.next()} {common.last()}`,
             container: "paging_wrapper",
-            size: 20,
+            size: 8,
             group: 5
         },
         scroll: true,
-        height: 400,
-        select: true,
         columns: [
             {
-                id: "ch1",
-                header: "",
-                template: "{common.checkbox()}",
-                width: 80
-            },
-            {
                 id: "ref",
-                width: 80,
                 header: ["Ref", { content: "textFilter" }],
+                width: 70,
                 sort: "int"
             },
             {
                 id: "title",
                 header: ["Title", { content: "textFilter" }],
-                width: 300,
-                sort: "string",
-                filter: "string"
+                width: 250,
+                sort: "string"
             },
             {
                 id: "team",
@@ -46,31 +37,31 @@ function getUI(select) {
             {
                 id: "client",
                 header: ["Client", { content: "textFilter" }],
-                width: 200,
+                width: 120,
                 sort: "string"
             },
             {
                 id: "pm",
                 header: ["PM", { content: "textFilter" }],
-                width: 100,
+                width: 120,
                 sort: "string"
             },
             {
                 id: "status",
                 header: ["Status", { content: "textFilter" }],
-                width: 100,
+                width: 90,
                 sort: "string"
             },
             {
                 id: "deadline",
                 header: ["Deadline", { content: "textFilter" }],
-                width: 100,
+                width: 120,
                 sort: "string"
             },
             {
-                id: "date Sent",
+                id: "date-sent",
                 header: ["Date Sent", { content: "textFilter" }],
-                width: 150,
+                width: 120,
                 sort: "string"
             }
         ]

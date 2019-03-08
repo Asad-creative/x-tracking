@@ -104772,7 +104772,11 @@ function (_Component) {
   _createClass(Webix, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "title"
+      }, "Webix React Datatable"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "box",
         ref: "root"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -104852,39 +104856,31 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-function getUI(select) {
+function getUI() {
   return {
     view: "datatable",
     container: "box",
     pager: {
       template: "{common.first()} {common.prev()} {common.pages()} \n            {common.next()} {common.last()}",
       container: "paging_wrapper",
-      size: 20,
+      size: 8,
       group: 5
     },
     scroll: true,
-    height: 400,
-    select: true,
     columns: [{
-      id: "ch1",
-      header: "",
-      template: "{common.checkbox()}",
-      width: 80
-    }, {
       id: "ref",
-      width: 80,
       header: ["Ref", {
         content: "textFilter"
       }],
+      width: 70,
       sort: "int"
     }, {
       id: "title",
       header: ["Title", {
         content: "textFilter"
       }],
-      width: 300,
-      sort: "string",
-      filter: "string"
+      width: 250,
+      sort: "string"
     }, {
       id: "team",
       header: ["Team", {
@@ -104897,35 +104893,35 @@ function getUI(select) {
       header: ["Client", {
         content: "textFilter"
       }],
-      width: 200,
+      width: 120,
       sort: "string"
     }, {
       id: "pm",
       header: ["PM", {
         content: "textFilter"
       }],
-      width: 100,
+      width: 120,
       sort: "string"
     }, {
       id: "status",
       header: ["Status", {
         content: "textFilter"
       }],
-      width: 100,
+      width: 90,
       sort: "string"
     }, {
       id: "deadline",
       header: ["Deadline", {
         content: "textFilter"
       }],
-      width: 100,
+      width: 120,
       sort: "string"
     }, {
-      id: "date Sent",
+      id: "date-sent",
       header: ["Date Sent", {
         content: "textFilter"
       }],
-      width: 150,
+      width: 120,
       sort: "string"
     }] // on: {
     //     onAfterSelect: function(id) {

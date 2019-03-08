@@ -10,7 +10,8 @@ import "webix/webix.css";
 class Webix extends Component {
     render() {
         return (
-            <div>
+            <div className="container" >
+                <h1 className="title">Webix React Datatable</h1>
                 <div id="box" ref="root" />
                 <div id="paging_wrapper" />
             </div>
