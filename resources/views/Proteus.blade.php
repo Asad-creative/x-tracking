@@ -43,6 +43,7 @@
                     <a href="">Webix Tree</a>
                     <a href="{{ url('/webix/organogram') }}">Webix Organogram</a>
                     <a href="">Webix Gantt</a>
+                    <a href="{{ url('/webix/datatable-react') }}">Webix Datable React</a>
 
                 </div>
             </div>

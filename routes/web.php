@@ -19,9 +19,18 @@ Route::get('/', function () {
 Route::group([
 	'prefix' => 'webix'
 ], function () {
+	
 	Route::get('datatable', function () {
 	    return view('webix.datatable');
 	});
+
+	Route::get('datatable-react', function () {
+	    return view('webix.datatable-react');
+	});
+
+
+
+	
 
 	Route::get('dynamic/datatable', function () {
 	    return view('webix.dynamic-datatable');
