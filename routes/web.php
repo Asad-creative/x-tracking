@@ -16,13 +16,22 @@ Route::get('/', function () {
     return view('Proteus');
 });
 
+Route::group([
+	'prefix' => 'webix'
+], function () {
+	Route::get('datatable', function () {
+	    return view('webix.datatable');
+	});
 
-Route::get('/webix/datatable', function () {
-    return view('webix.datatable');
-});
+	Route::get('dynamic/datatable', function () {
+	    return view('webix.dynamic-datatable');
+	});
 
-Route::get('webix/dynamic/datatable', function () {
-    return view('webix.dynamic-datatable');
+	Route::get('get/datatable', 'HomeController@datatable');
+
+	Route::get('organogram', function () {
+	    return view('webix.organogram');
+	});
 });
 
 Route::get('/webix/get/datatable', 'HomeController@datatable');
