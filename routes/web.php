@@ -32,6 +32,10 @@ Route::group([
 	Route::get('organogram', function () {
 	    return view('webix.organogram');
 	});
+
+	Route::get('gantt', function () {
+	    return view('webix.gantt');
+	});
 });
 
 Route::get('/webix/get/datatable', 'HomeController@datatable');
