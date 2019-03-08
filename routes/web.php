@@ -12,6 +12,9 @@ use App\User;
 */
 
 Route::get('/', function () {
+  //  $users = User::all()->toArray();
+  //  dd($users);
+  //  exit;
     return view('welcome');
 });
 

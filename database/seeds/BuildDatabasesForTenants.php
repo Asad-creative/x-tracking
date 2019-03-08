@@ -18,9 +18,9 @@ class BuildDatabasesForTenants extends Seeder
         //
 
 		 $customers = [
-            ['database' => 'proteus1_tenancy', 'domain' => 'proteus1.multi-tenancy.job', 'name' => 'Proteus1 Customer', 'email' => 'customer@proteus1.com'],
-            ['database' => 'proteus2_tenancy', 'domain' => 'proteus2.multi-tenancy.job', 'name' => 'Proteus2 Customer', 'email' => 'customer@proteus2.com'],
-            ['database' => 'proteus3_tenancy', 'domain' => 'proteus3.multi-tenancy.job', 'name' => 'Proteus3 Customer', 'email' => 'customer@proteus3.com'],
+            ['database' => 'proteus1_tenancy', 'domain' => 'proteus1.localhost', 'name' => 'Proteus1 Customer', 'email' => 'customer@proteus1.com'],
+            ['database' => 'proteus2_tenancy', 'domain' => 'proteus2.localhost', 'name' => 'Proteus2 Customer', 'email' => 'customer@proteus2.com'],
+            ['database' => 'proteus3_tenancy', 'domain' => 'proteus3.localhost', 'name' => 'Proteus3 Customer', 'email' => 'customer@proteus3.com'],
         ];
         foreach ($customers as $customer) {
 

@@ -8,8 +8,8 @@ Route::middleware('web')
         #Auth::routes();
         Route::get('/', function () {
 
-        $project =  Project::all();
-            print_r($project);
+            $project =  Project::all()->toArray();
+            dd($project);
             exit;
             return view('welcome');
         });
