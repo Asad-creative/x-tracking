@@ -143,7 +143,7 @@ body.webix_full_screen {
   letter-spacing: 0px;
   line-height: 42px;
 }
-.webix_header .webix_el_label .webix_el_box {
+.webix_header .webix_el_label {
   font-family: Roboto, sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -595,7 +595,7 @@ button,
 .webix_accordionitem_header.webix_dark {
   color: #FFFFFF;
 }
-.webix_accordionitem_header .webix_el_label .webix_el_box {
+.webix_accordionitem_header .webix_el_label {
   font-family: Roboto, sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -1591,12 +1591,6 @@ button,
 .webix_hcell .webix_tree_open {
   margin-right: 5px;
 }
-.webix_table_checkbox,
-.webix_hcell input[type="checkbox"] {
-  margin-top: 0px;
-  margin-bottom: 2px;
-  vertical-align: middle;
-}
 .webix_ss_filter select,
 .webix_ss_filter input {
   width: 100%;
@@ -1923,7 +1917,7 @@ button,
 .webix_win_head > .webix_view > .webix_template.webix_dark {
   color: #FFFFFF;
 }
-.webix_win_head > .webix_view > .webix_template .webix_el_label .webix_el_box {
+.webix_win_head > .webix_view > .webix_template .webix_el_label {
   font-family: Roboto, sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -2749,7 +2743,7 @@ button,
   border-bottom: 1px solid #EDEFF0;
   line-height: 28px;
 }
-.webix_property_label_line .webix_el_label .webix_el_box {
+.webix_property_label_line .webix_el_label {
   font-family: Roboto, sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -4128,6 +4122,7 @@ input.webixtype_next {
   color: #475466;
 }
 .webix_toolbar .webix_el_label {
+  padding-left: 12px;
   text-transform: none;
 }
 .webix_el_select select {
@@ -4813,7 +4808,7 @@ legend.webix_required:after,
   height: 100%;
 }
 /* Toolbar */
-.webix_layout_toolbar .webix_el_label .webix_el_box {
+.webix_layout_toolbar .webix_el_label {
   font-family: Roboto, sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -5117,7 +5112,7 @@ legend.webix_required:after,
 .webix_layout_toolbar.webix_dark .webix_disabled_top_label {
   color: rgba(255, 255, 255, 0.4);
 }
-.webix_toolbar.webix_layout_subbar .webix_el_label .webix_el_box {
+.webix_toolbar.webix_layout_subbar .webix_el_label {
   font-family: Roboto, sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -6754,7 +6749,7 @@ body.webix_print {
 }
 /*[L]*/
 /*[L]*/
-.layoutBarBG .webix_el_label .webix_el_box {
+.layoutBarBG .webix_el_label {
   font-family: Roboto, sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -7058,7 +7053,7 @@ body.webix_print {
 .layoutBarBG.webix_dark .webix_disabled_top_label {
   color: rgba(255, 255, 255, 0.4);
 }
-.webix_layout_toolbar.webix_toolbar .webix_el_label .webix_el_box {
+.webix_layout_toolbar.webix_toolbar .webix_el_label {
   font-family: Roboto, sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -9046,7 +9041,7 @@ div.webix_inp_static,
 .webix_inp_label,
 .webix_inp_top_label,
 legend.webix_forminput_label,
-.webix_el_label .webix_el_box {
+.webix_el_label {
   font-family: Roboto, sans-serif;
   font-size: 14px;
   font-weight: 500;
