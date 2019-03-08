@@ -24,7 +24,7 @@ var paths = {
             require('postcss-css-variables')()
         ]
    });
-
+   
 //    mix.styles([
 //       paths.webix + 'webix.css',
 //   ], 'public/css/webix.css');

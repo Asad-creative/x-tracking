@@ -1,5 +1,5 @@
 <?php
-
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +26,9 @@ Route::get('webix/dynamic/datatable', function () {
 });
 
 Route::get('/webix/get/datatable', 'HomeController@datatable');
+
+
+
 
 Auth::routes();
 
