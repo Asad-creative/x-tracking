@@ -14,7 +14,7 @@ function getUI() {
             size: 8,
             group: 5
         },
-        scroll: true,
+        scroll: false,
         columns: [
             {
                 id: "ref",
@@ -59,7 +59,7 @@ function getUI() {
                 sort: "string"
             },
             {
-                id: "date-sent",
+                id: "dateSent",
                 header: ["Date Sent", { content: "textFilter" }],
                 width: 120,
                 sort: "string"
@@ -91,7 +91,8 @@ export default class Example extends Component {
                     client: item.client,
                     pm: item.pm,
                     status: item.status,
-                    deadline: item.deadline
+                    deadline: item.deadline,
+                    dateSent: item.date_sent
                 };
             });
 
