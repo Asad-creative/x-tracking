@@ -6,56 +6,72 @@ import axios from "axios";
 function getUI(select) {
     return {
         view: "datatable",
-        // pager: {
-        //     container: "paging_here",
-        //     size: 10,
-        //     group: 10
-        // },
+        container: "box",
+        pager: {
+            template: `{common.first()} {common.prev()} {common.pages()} 
+            {common.next()} {common.last()}`,
+            container: "paging_wrapper",
+            size: 20,
+            group: 5
+        },
         scroll: true,
-        width: 900,
-        // autoheight: true,
-        height: 500,
+        height: 400,
         select: true,
         columns: [
-            { id: "ref", fillspace: 2, sort: "int" },
+            {
+                id: "ch1",
+                header: "",
+                template: "{common.checkbox()}",
+                width: 80
+            },
+            {
+                id: "ref",
+                width: 80,
+                header: ["Ref", { content: "textFilter" }],
+                sort: "int"
+            },
             {
                 id: "title",
                 header: ["Title", { content: "textFilter" }],
-                fillspace: 4,
+                width: 300,
                 sort: "string",
                 filter: "string"
             },
             {
                 id: "team",
                 header: ["Team", { content: "textFilter" }],
-                fillspace: 4,
+                width: 200,
                 sort: "string"
             },
             {
                 id: "client",
                 header: ["Client", { content: "textFilter" }],
-                fillspace: 3,
+                width: 200,
                 sort: "string"
             },
             {
                 id: "pm",
                 header: ["PM", { content: "textFilter" }],
-                fillspace: 2
+                width: 100,
+                sort: "string"
             },
             {
                 id: "status",
                 header: ["Status", { content: "textFilter" }],
-                fillspace: 2
+                width: 100,
+                sort: "string"
             },
             {
                 id: "deadline",
-                header: ["Status", { content: "textFilter" }],
-                fillspace: 3
+                header: ["Deadline", { content: "textFilter" }],
+                width: 100,
+                sort: "string"
             },
             {
                 id: "date Sent",
-                header: ["Status", { content: "textFilter" }],
-                fillspace: 3
+                header: ["Date Sent", { content: "textFilter" }],
+                width: 150,
+                sort: "string"
             }
         ]
         // on: {
