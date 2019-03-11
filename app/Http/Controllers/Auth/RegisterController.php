@@ -46,8 +46,8 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
-        //$this->middleware('guest');
+        //$this->middleware('auth');
+        $this->middleware('guest');
     }
 
     /**
@@ -75,6 +75,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+
        $user =  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -105,7 +107,7 @@ class RegisterController extends Controller
         $subDomain    = $this->createSubdomain($data['domain']);
         $hostname = new Hostname(['fqdn' => $subDomain]);
         app(HostnameRepository::class)->attach($hostname, $website);
-
+        $user->input_data =  $data ;
         return $user;
     }
 
@@ -116,9 +118,10 @@ class RegisterController extends Controller
         event(new Registered($user = $this->create($request->all())));
 
       //  $this->guard()->login($user);
-
-        return $this->registered($request, $user)
-                        ?: redirect($this->redirectPath());
+        // todo # go to subdomain from here
+        $finalURL  = str_replace(URLRequest::getHost(), $this->createSubdomain($user->input_data['domain']), \URL::to('/'));
+        return redirect($finalURL);
+      //  return $this->registered($request, $user)  ?: redirect($this->redirectPath());
     }
 
     public function createSubdomain($domain)
