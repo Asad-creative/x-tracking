@@ -36,6 +36,15 @@ Route::group([
 	Route::get('gantt', function () {
 	    return view('webix.gantt');
 	});
+
+	Route::get('dynamic/gantt', function () {
+	    return view('webix.dynamic-gantt');
+	});
+
+	Route::get('get/gantt', 'HomeController@gantt');
+
+	Route::resource('gantt/task', 'TaskController');
+	Route::resource('gantt/link', 'LinkController');
 });
 
 Route::get('/webix/get/datatable', 'HomeController@datatable');

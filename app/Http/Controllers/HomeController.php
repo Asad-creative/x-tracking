@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Datatable;
+use App\Task;
+use App\Link;
 
 class HomeController extends Controller
 {
@@ -83,5 +85,88 @@ class HomeController extends Controller
         print_r($return);
         die;*/
         return $return;
+    }
+
+    public function gantt(Request $request)
+    {
+        /*$input = $request->all();
+        $data = [
+            [
+                "id"=>1, 
+                "text"=>"Project #2", 
+                "start_date"=>"01-04-2013", 
+                "duration"=>18,
+                "order"=>10,
+                "progress"=>0.4,
+                "open"=> true
+            ],
+            [
+                "id"=>2, 
+                "text"=>"Task #1", 
+                "start_date"=>"02-04-2013", 
+                "duration"=>8,
+                "order"=>10,
+                "progress"=>0.6,
+                "parent"=> 1
+            ],
+            [
+                "id"=>3, 
+                "text"=>"Task #2", 
+                "start_date"=>"11-04-2013", 
+                "duration"=>8,
+                "order"=>20,
+                "progress"=>0.6,
+                "parent"=> 1
+            ]
+        ];
+
+        $links = [
+            [
+                "id"=>1, 
+                "source"=>1, 
+                "target"=>2, 
+                "type"=>"1"
+            ],
+            [
+                "id"=>2, 
+                "source"=>2, 
+                "target"=>3, 
+                "type"=>"0"
+            ],
+            [
+                "id"=>3, 
+                "source"=>3, 
+                "target"=>4, 
+                "type"=>"0"
+            ],
+            [
+                "id"=>4, 
+                "source"=>2, 
+                "target"=>5, 
+                "type"=>"2"
+            ],
+        ];*/
+
+        $tasks = Task::get();
+        
+        $tasks_data = [];
+        foreach($tasks as $task){
+            $tasks_data[] = [
+                "id"            => $task->id, 
+                "text"          => $task->text, 
+                "start_date"    => date("d-m-Y",strtotime($task->start_date)), 
+                "duration"      => $task->duration,
+                "progress"      => $task->progress,
+                "parent"        => $task->parent,
+                "open"          => $task->open
+            ];
+        }
+
+        $links = new Link();
+
+        return response()->json([
+            "data" => $tasks_data,
+            "links" => $links->all()
+        ]);
     }
 }
