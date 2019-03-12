@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 import Webix from "./Webix";
 import axios from "axios";
 
@@ -73,7 +72,7 @@ function getUI() {
     };
 }
 
-export default class Example extends Component {
+class Example extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -105,6 +104,4 @@ export default class Example extends Component {
     }
 }
 
-if (document.getElementById("app")) {
-    ReactDOM.render(<Example />, document.getElementById("app"));
-}
+export default Example;
