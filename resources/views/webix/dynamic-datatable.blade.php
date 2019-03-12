@@ -2,6 +2,12 @@
 
 @section('content')
 	<link rel="stylesheet" href="{{ asset('css/webix.css') }}" type="text/css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<style>
+		.hover-pointer{
+			cursor: pointer;
+		}
+	</style>
     <script src="{{ asset('js/webix.js') }}" type="text/javascript"></script>
 
     	<div style="margin-left: 11%;">
@@ -9,13 +15,10 @@
     		<a class="btn btn-danger" href="{{ url('webix/dynamic/datatable') }}">Dynamic Data</a>
     	</div>
     	<br>
-		<div id="box" style="width:1200px;height:470px;margin: 0 auto;"></div>
-		<div id="my_form" style="width:1200px;margin: 0 auto;"></div>
+		<div id="box" style="width:1300px;height:470px;margin: 0 auto;"></div>
+		<div id="my_form" style="width:1300px;margin: 0 auto;"></div>
 		<div id="paging_here" style="margin-left: 10%;"></div>
 
-		
-		
-	
     <script type="text/javascript" charset="utf-8">
     	
     	/*webix.locale.pager = {
@@ -52,6 +55,7 @@
 		        	header:[ "Title",{content:"serverFilter"}], 	   
 		        	width:250, 
 		        	sort:"server",	
+		        	template:"<strong>#title#</strong>",
 		        	editor:"text" 		
 		        },
 		        { 
@@ -97,6 +101,12 @@
 		        	width:150, 
 		        	sort:"server",	
 		        	editor:"text"		
+		        },
+		        { 
+		        	id:"id",  
+		        	header:"Action",    
+		        	width:100, 		
+		        	template:"<i onClick='edit_item(#id#)' class='hover-pointer fas fa-pencil-alt'></i> &nbsp; <i onClick='remove_item()' class='hover-pointer fas fa-trash-alt'></i>",	
 		        }
 		    ],
 		    on:{
@@ -120,7 +130,6 @@
 		
 		webix.ui({ 
 		  	view:"form",
-		    width:1200,
 		    container:"my_form",
 		    id:"formAddRow",
 		    elements:[    
@@ -183,6 +192,11 @@
 		  if (!sel) return;
 		  for (var i = 0; i < sel.length; i++)
 		    $$("datatable_1").remove(sel[i].row);
+		};
+
+		edit_item = function(row_id) {
+		   	$$('datatable_1').editStop();
+		  	$$('datatable_1').editRow(row_id);
 		};
 
 		update_item = function() {
