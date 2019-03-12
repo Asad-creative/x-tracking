@@ -87,6 +87,54 @@ class HomeController extends Controller
         return $return;
     }
 
+    public function datatable_action(Request $request)
+    {
+        $input = $request->all();
+        if($input['webix_operation'] == 'insert'){
+            $dt = new Datatable();
+ 
+            $dt->title      = $request->title;
+            $dt->team       = $request->team;
+            $dt->client     = $request->client;
+            $dt->pm         = $request->pm;
+            $dt->status     = $request->status;
+            $dt->deadline   = $request->deadline;
+     
+            $dt->save();
+
+            return response()->json([
+                "action"=> "inserted",
+                "tid" => $dt->id
+            ]);
+        }
+
+        if($input['webix_operation'] == 'update'){
+            $dt = Datatable::find($request->id);
+ 
+            $dt->title      = $request->title;
+            $dt->team       = $request->team;
+            $dt->client     = $request->client;
+            $dt->pm         = $request->pm;
+            $dt->status     = $request->status;
+            $dt->deadline   = $request->deadline;
+     
+            $dt->save();
+
+            return response()->json([
+                "action"=> "updated"
+            ]);
+        }
+
+        if($input['webix_operation'] == 'delete'){
+
+            $dt = Datatable::find($request->id);
+            $dt->delete();
+            return response()->json([
+                "action"=> "deleted"
+            ]);
+        }
+    }
+
     public function gantt(Request $request)
     {
         /*$input = $request->all();

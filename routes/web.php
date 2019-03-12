@@ -28,6 +28,7 @@ Route::group([
 	});
 
 	Route::get('get/datatable', 'HomeController@datatable');
+	Route::post('datatable/action', 'HomeController@datatable_action');
 
 	Route::get('organogram', function () {
 	    return view('webix.organogram');
