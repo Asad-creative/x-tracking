@@ -104781,6 +104781,8 @@ function (_Component) {
         ref: "root"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "paging_wrapper"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "scheduler"
       }));
     }
   }, {
@@ -104868,7 +104870,7 @@ function (_Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dataTable__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dataTable__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_scehdulerCalendar__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
   }]);
 
@@ -104921,6 +104923,8 @@ function getUI() {
   return {
     view: "datatable",
     container: "box",
+    editable: true,
+    editaction: "custom",
     pager: {
       template: "{common.first()} {common.prev()} {common.pages()} \n            {common.next()} {common.last()}",
       container: "paging_wrapper",
@@ -104940,6 +104944,7 @@ function getUI() {
       header: ["Title", {
         content: "textFilter"
       }],
+      editor: "text",
       width: 250,
       sort: "string"
     }, {
@@ -104984,12 +104989,15 @@ function getUI() {
       }],
       width: 120,
       sort: "string"
-    }] // on: {
-    //     onAfterSelect: function(id) {
-    //         select(id);
-    //     }
-    // }
-
+    }],
+    select: "cell",
+    on: {
+      onAfterSelect: function onAfterSelect(id) {// console.log("this", this);
+        // var value = this.getItem(id).ref;
+        // var data = $$("data");
+        // console.log("value", data);
+      }
+    }
   };
 }
 
@@ -105083,17 +105091,69 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+var tasks = {
+  data: [{
+    id: 1,
+    text: "Project #2",
+    start_date: "01-04-2013",
+    duration: 18,
+    order: 10,
+    progress: 0.4,
+    open: true
+  }, {
+    id: 2,
+    text: "Task #1",
+    start_date: "02-04-2013",
+    duration: 8,
+    order: 10,
+    progress: 0.6,
+    parent: 1
+  }, {
+    id: 3,
+    text: "Task #2",
+    start_date: "11-04-2013",
+    duration: 8,
+    order: 20,
+    progress: 0.6,
+    parent: 1
+  }],
+  links: [{
+    id: 1,
+    source: 1,
+    target: 2,
+    type: "1"
+  }, {
+    id: 2,
+    source: 2,
+    target: 3,
+    type: "0"
+  }, {
+    id: 3,
+    source: 3,
+    target: 4,
+    type: "0"
+  }, {
+    id: 4,
+    source: 2,
+    target: 5,
+    type: "2"
+  }]
+};
 
 function getUI() {
   return {
-    view: "dhx-scheduler",
-    date: new Date(2010, 0, 5),
-    mode: "week",
-    init: function init() {},
-    //scheduler config
-    ready: function ready() {
-      scheduler.parse("..events data..");
-    }
+    type: "space",
+    rows: [{
+      view: "dhx-gantt",
+      //  cdn: "https://cdn.dhtmlx.com/gantt/5.2",
+      init: function init(gantt_obj) {//do nothing
+        //   gantt_obj.addCalendar();
+        //   console.log("gantt", gantt_obj);
+      },
+      ready: function ready(gantt_obj) {
+        gantt_obj.parse(tasks);
+      }
+    }]
   };
 }
 

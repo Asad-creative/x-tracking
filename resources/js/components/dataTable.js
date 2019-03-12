@@ -6,6 +6,8 @@ function getUI() {
     return {
         view: "datatable",
         container: "box",
+        editable: true,
+        editaction: "custom",
         pager: {
             template: `{common.first()} {common.prev()} {common.pages()} 
             {common.next()} {common.last()}`,
@@ -24,6 +26,7 @@ function getUI() {
             {
                 id: "title",
                 header: ["Title", { content: "textFilter" }],
+                editor: "text",
                 width: 250,
                 sort: "string"
             },
@@ -63,12 +66,16 @@ function getUI() {
                 width: 120,
                 sort: "string"
             }
-        ]
-        // on: {
-        //     onAfterSelect: function(id) {
-        //         select(id);
-        //     }
-        // }
+        ],
+        select: "cell",
+        on: {
+            onAfterSelect: function(id) {
+                // console.log("this", this);
+                // var value = this.getItem(id).ref;
+                // var data = $$("data");
+                // console.log("value", data);
+            }
+        }
     };
 }
 
