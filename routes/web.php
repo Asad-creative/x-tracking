@@ -37,16 +37,27 @@ Route::group([
 	});
 
 	Route::get('get/datatable', 'HomeController@datatable');
+	Route::post('datatable/action', 'HomeController@datatable_action');
 
 	Route::get('organogram', function () {
 	    return view('webix.organogram');
 	});
+
+	Route::get('gantt', function () {
+	    return view('webix.gantt');
+	});
+
+	Route::get('dynamic/gantt', function () {
+	    return view('webix.dynamic-gantt');
+	});
+
+	Route::get('get/gantt', 'HomeController@gantt');
+
+	Route::resource('gantt/task', 'TaskController');
+	Route::resource('gantt/link', 'LinkController');
 });
 
 Route::get('/webix/get/datatable', 'HomeController@datatable');
-
-
-
 
 Auth::routes();
 

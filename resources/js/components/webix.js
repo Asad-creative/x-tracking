@@ -11,6 +11,7 @@ class Webix extends Component {
     render() {
         return (
             <div className="container">
+                {/* <i className="fas fa-trash-alt" /> */}
                 <h1 className="title">Webix React Datatable</h1>
                 <div id="box" ref="root" />
                 <div id="paging_wrapper" />

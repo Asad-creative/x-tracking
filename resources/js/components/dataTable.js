@@ -12,10 +12,12 @@ function getUI() {
             template: `{common.first()} {common.prev()} {common.pages()} 
             {common.next()} {common.last()}`,
             container: "paging_wrapper",
-            size: 8,
+            size: 10,
             group: 5
         },
-        scroll: false,
+        datafetch: 10,
+        url: "get/datatable",
+        scroll: true,
         columns: [
             {
                 id: "ref",
@@ -61,21 +63,35 @@ function getUI() {
                 sort: "string"
             },
             {
-                id: "dateSent",
-                header: ["Date Sent", { content: "textFilter" }],
-                width: 120,
-                sort: "string"
+                id: "created_at",
+                header: ["Date Sent", { content: "serverFilter" }],
+                width: 150,
+                sort: "server",
+                editor: "text"
+            },
+            // {
+            //     id: "date-sent",
+            //     header: ["Date Sent", { content: "textFilter" }],
+            //     width: 120,
+            //     sort: "string"
+            // },
+            {
+                id: "id",
+                header: "Action",
+                // width: 120,
+                template: "<button >Edit</button><button >Delete</button>"
+                // sort: "string"
             }
         ],
-        select: "cell",
-        on: {
-            onAfterSelect: function(id) {
-                // console.log("this", this);
-                // var value = this.getItem(id).ref;
-                // var data = $$("data");
-                // console.log("value", data);
-            }
-        }
+        select: "cell"
+        // on: {
+        //     onAfterSelect: function(id) {
+        //         // console.log("this", this);
+        //         // var value = this.getItem(id).ref;
+        //         // var data = $$("data");
+        //         // console.log("value", data);
+        //     }
+        // }
     };
 }
 
@@ -87,27 +103,8 @@ class Example extends Component {
         };
     }
 
-    componentDidMount() {
-        axios.get("../data.json").then(resp => {
-            const getShowData = resp.data.map(item => {
-                return {
-                    ref: item.ref,
-                    title: item.title,
-                    team: item.team,
-                    client: item.client,
-                    pm: item.pm,
-                    status: item.status,
-                    deadline: item.deadline,
-                    dateSent: item.date_sent
-                };
-            });
-
-            this.setState({ data: getShowData });
-        });
-    }
-
     render() {
-        return <Webix ui={getUI()} data={this.state.data} />;
+        return <Webix ui={getUI()} />;
     }
 }
 

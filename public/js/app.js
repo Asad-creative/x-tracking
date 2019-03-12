@@ -104928,10 +104928,12 @@ function getUI() {
     pager: {
       template: "{common.first()} {common.prev()} {common.pages()} \n            {common.next()} {common.last()}",
       container: "paging_wrapper",
-      size: 8,
+      size: 10,
       group: 5
     },
-    scroll: false,
+    datafetch: 10,
+    url: "get/datatable",
+    scroll: true,
     columns: [{
       id: "ref",
       header: ["Ref", {
@@ -104983,21 +104985,35 @@ function getUI() {
       width: 120,
       sort: "string"
     }, {
-      id: "dateSent",
+      id: "created_at",
       header: ["Date Sent", {
-        content: "textFilter"
+        content: "serverFilter"
       }],
-      width: 120,
-      sort: "string"
+      width: 150,
+      sort: "server",
+      editor: "text"
+    }, // {
+    //     id: "date-sent",
+    //     header: ["Date Sent", { content: "textFilter" }],
+    //     width: 120,
+    //     sort: "string"
+    // },
+    {
+      id: "id",
+      header: "Action",
+      // width: 120,
+      template: "<button >Edit</button><button >Delete</button>" // sort: "string"
+
     }],
-    select: "cell",
-    on: {
-      onAfterSelect: function onAfterSelect(id) {// console.log("this", this);
-        // var value = this.getItem(id).ref;
-        // var data = $$("data");
-        // console.log("value", data);
-      }
-    }
+    select: "cell" // on: {
+    //     onAfterSelect: function(id) {
+    //         // console.log("this", this);
+    //         // var value = this.getItem(id).ref;
+    //         // var data = $$("data");
+    //         // console.log("value", data);
+    //     }
+    // }
+
   };
 }
 
@@ -105019,35 +105035,10 @@ function (_Component) {
   }
 
   _createClass(Example, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("../data.json").then(function (resp) {
-        var getShowData = resp.data.map(function (item) {
-          return {
-            ref: item.ref,
-            title: item.title,
-            team: item.team,
-            client: item.client,
-            pm: item.pm,
-            status: item.status,
-            deadline: item.deadline,
-            dateSent: item.date_sent
-          };
-        });
-
-        _this2.setState({
-          data: getShowData
-        });
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Webix__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        ui: getUI(),
-        data: this.state.data
+        ui: getUI()
       });
     }
   }]);

@@ -60,6 +60,34 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Database') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="database" type="text" class="form-control{{ $errors->has('database') ? ' is-invalid' : '' }}" name="database" value="{{ old('database') }}" required autofocus>
+
+                                @if ($errors->has('database'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('database') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Domain') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="domain" type="text" class="form-control{{ $errors->has('domain') ? ' is-invalid' : '' }}" name="domain" value="{{ old('domain') }}" required autofocus>
+
+                                @if ($errors->has('domain'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('domain') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
