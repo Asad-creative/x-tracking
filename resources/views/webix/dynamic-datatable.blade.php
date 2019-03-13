@@ -151,10 +151,10 @@
 				      		view:"text", name:"client", placeholder:"Client", inputWidth:120
 				      	},
 				      	{	
-				      		view:"text", name:"pm", placeholder:"PM", inputWidth:120
+				      		view:"combo", options: [{ id:'saif', value:'Saif' },{ id:'asad', value:'Asadullah' },'Zeeshan','Shahid'], name:"pm", inputWidth:120
 				      	},
 				      	{	
-				      		view:"text", name:"status", placeholder:"Status", inputWidth:120
+				      		view:"select", options:['Pending','Approved','Send'], name:"status",  inputWidth:120
 				      	},
 				      	{	
 				      		view:"text", name:"deadline", placeholder:"Deadline", inputWidth:150
