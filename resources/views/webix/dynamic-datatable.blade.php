@@ -112,7 +112,7 @@
 		        	id:"id",  
 		        	header:"Action",    
 		        	width:100,
-		        	template:"<i onClick='edit_item(#id#)' class='hover-pointer fas fa-pencil-alt'></i> &nbsp; <i onClick='remove_item()' class='hover-pointer fas fa-trash-alt'></i>",	
+		        	template:"<i onClick='edit_item(#id#)' class='hover-pointer fas fa-pencil-alt'></i> &nbsp; <i onClick='remove_single_item(#id#)' class='hover-pointer fas fa-trash-alt'></i>",	
 		        }
 		    ],
 		    on:{
@@ -170,7 +170,7 @@
 		      				view:"button", value:"Add",click:"window.add_item()"
 		      			}, 
 		      			{ 
-		      				view:"button", value:"Remove selected",click:"window.remove_item()"
+		      				view:"button", value:"Remove selected",click:"window.remove_items()"
 		      			}
 		      		]
 		      	}
@@ -192,7 +192,11 @@
           $$('datatable_1').editRow(id);
 		};
 
-		remove_item = function(){
+		remove_single_item = function(row_id){
+		    $$("datatable_1").remove(row_id);
+		};
+
+		remove_items = function(){
 		  //var sel = $$("datatable_1").getSelectedId(true);
 		  //if (!sel) return;
 		  //for (var i = 0; i < sel.length; i++)
