@@ -44,6 +44,12 @@
 		        group:5
 		    },
 		    columns:[
+		    	{ 
+		    		id:"ch", 
+		    		header:"", 
+		    		template:"{common.checkbox()}", 
+		    		width:40
+		    	},
 		        { 
 		        	id:"ref",   		
 		        	header:[ "Ref",{content:"serverFilter"}], 		   
@@ -105,7 +111,7 @@
 		        { 
 		        	id:"id",  
 		        	header:"Action",    
-		        	width:100, 		
+		        	width:100,
 		        	template:"<i onClick='edit_item(#id#)' class='hover-pointer fas fa-pencil-alt'></i> &nbsp; <i onClick='remove_item()' class='hover-pointer fas fa-trash-alt'></i>",	
 		        }
 		    ],
@@ -116,8 +122,7 @@
 			    onAfterLoad:function(){
 			        this.hideOverlay();
 			    },
-			    onAfterEditStop:function(){  
-			    	console.log(arguments); 
+			    onAfterEditStop:function(){
 			    	update_item();
 			    }
 			},
@@ -128,7 +133,7 @@
 			},
 		});
 		
-		webix.ui({ 
+		webix.ui({
 		  	view:"form",
 		    container:"my_form",
 		    id:"formAddRow",
@@ -188,10 +193,15 @@
 		};
 
 		remove_item = function(){
-		  var sel = $$("datatable_1").getSelectedId(true);
-		  if (!sel) return;
-		  for (var i = 0; i < sel.length; i++)
-		    $$("datatable_1").remove(sel[i].row);
+		  //var sel = $$("datatable_1").getSelectedId(true);
+		  //if (!sel) return;
+		  //for (var i = 0; i < sel.length; i++)
+		    //$$("datatable_1").remove(sel[i].row);
+		  	var checked = [];
+		  	$$("datatable_1").data.each(function(obj){
+		      	if(obj.ch) checked.push(obj.id);
+		    });
+		    $$("datatable_1").remove(checked);
 		};
 
 		edit_item = function(row_id) {
