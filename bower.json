@@ -1,0 +1,21 @@
+{
+   "name": "react-webix sample",
+   "description": "sample of using react with webix",
+   "main": "index.js",
+   "authors": [
+     "Ilya Basiuk <ilyabasiuk@gmail.com>"
+   ],
+   "license": "ISC",
+   "moduleType": [],
+   "homepage": "",
+   "ignore": [
+     "**/.*",
+     "node_modules",
+     "bower_components",
+     "test",
+     "tests"
+   ],
+   "dependencies": {
+     "webix": "^3.2.0"
+   }
+ }

@@ -1,13 +1,37 @@
 import React, { Component } from "react";
 import Webix from "./Webix";
-import axios from "axios";
+// import { $$ } from "webix";
+import "webix/webix.js";
+import "webix/webix.css";
+
+function deleteItem(id) {
+    var sel = $$("datatable_1").getSelectedId(true);
+    if (!sel) return;
+    for (var i = 0; i < sel.length; i++) $$("datatable_1").remove(sel[i].row);
+}
+
+function update_item() {
+    var sel = $$("datatable_1").getSelectedId();
+    if (!sel) return;
+
+    var row = $$("datatable_1").getItem(sel.row);
+    $$("datatable_1").updateItem(sel.row);
+}
+
+function edit_item(row_id) {
+    $$("datatable_1").editStop();
+    $$("datatable_1").editRow(row_id);
+}
 
 function getUI() {
     return {
         view: "datatable",
         container: "box",
+        id: "datatable_1",
         editable: true,
-        editaction: "custom",
+        drag: true,
+        tooltip: true,
+        editaction: "dblclick",
         pager: {
             template: `{common.first()} {common.prev()} {common.pages()} 
             {common.next()} {common.last()}`,
@@ -21,46 +45,51 @@ function getUI() {
         columns: [
             {
                 id: "ref",
-                header: ["Ref", { content: "textFilter" }],
+                header: ["Ref", { content: "serverFilter" }],
                 width: 70,
-                sort: "int"
+                sort: "server"
             },
             {
                 id: "title",
-                header: ["Title", { content: "textFilter" }],
+                header: ["Title", { content: "serverFilter" }],
                 editor: "text",
                 width: 250,
-                sort: "string"
+                sort: "server"
             },
             {
                 id: "team",
-                header: ["Team", { content: "textFilter" }],
+                header: ["Team", { content: "serverFilter" }],
                 width: 200,
-                sort: "string"
+                editor: "text",
+                sort: "server"
             },
             {
                 id: "client",
-                header: ["Client", { content: "textFilter" }],
+                header: ["Client", { content: "serverFilter" }],
                 width: 120,
-                sort: "string"
+                editor: "text",
+                sort: "server"
             },
             {
                 id: "pm",
-                header: ["PM", { content: "textFilter" }],
+                header: ["PM", { content: "serverFilter" }],
                 width: 120,
-                sort: "string"
+                editor: "text",
+                sort: "server"
             },
             {
                 id: "status",
-                header: ["Status", { content: "textFilter" }],
+                header: ["Status", { content: "serverFilter" }],
                 width: 90,
-                sort: "string"
+                sort: "server",
+                editor: "text"
             },
             {
                 id: "deadline",
-                header: ["Deadline", { content: "textFilter" }],
+                header: ["Deadline", { content: "serverFilter" }],
                 width: 120,
-                sort: "string"
+                editor: "text",
+                sort: "server"
             },
             {
                 id: "created_at",
@@ -69,40 +98,47 @@ function getUI() {
                 sort: "server",
                 editor: "text"
             },
-            // {
-            //     id: "date-sent",
-            //     header: ["Date Sent", { content: "textFilter" }],
-            //     width: 120,
-            //     sort: "string"
-            // },
             {
                 id: "id",
                 header: "Action",
                 // width: 120,
-                template: "<button >Edit</button><button >Delete</button>"
-                // sort: "string"
+                template: `
+                    <span>
+                        <button class="edit_button" value="edit" >Edit</button>
+                        <button  class="delete_button" value="remove" >Delete</button>
+                    </span>
+                `
             }
         ],
-        select: "cell"
-        // on: {
-        //     onAfterSelect: function(id) {
-        //         // console.log("this", this);
-        //         // var value = this.getItem(id).ref;
-        //         // var data = $$("data");
-        //         // console.log("value", data);
-        //     }
-        // }
+        save: {
+            insert: "datatable/action",
+            update: "datatable/action",
+            delete: "datatable/action"
+        },
+        onClick: {
+            delete_button: function(ev, id) {
+                deleteItem(id.row);
+            },
+            edit_button: function(ev, id) {
+                edit_item(id.row);
+            }
+        },
+        on: {
+            onBeforeLoad: function() {
+                this.showOverlay("Loading...");
+            },
+            onAfterLoad: function() {
+                this.hideOverlay();
+            },
+            onAfterEditStop: function() {
+                update_item();
+            }
+        },
+        select: "row"
     };
 }
 
 class Example extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: []
-        };
-    }
-
     render() {
         return <Webix ui={getUI()} />;
     }

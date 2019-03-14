@@ -10,12 +10,20 @@ import "webix/webix.css";
 class Webix extends Component {
     render() {
         return (
-            <div className="container">
+            <div>
                 {/* <i className="fas fa-trash-alt" /> */}
                 <h1 className="title">Webix React Datatable</h1>
-                <div id="box" ref="root" />
+                <div
+                    id="box"
+                    ref="root"
+                    style={{
+                        width: 1250,
+                        height: 470,
+                        marginTop: 0,
+                        marginRight: "auto"
+                    }}
+                />
                 <div id="paging_wrapper" />
-                <div id="scheduler" />
             </div>
         );
     }

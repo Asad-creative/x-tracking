@@ -104772,17 +104772,19 @@ function (_Component) {
   _createClass(Webix, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "title"
       }, "Webix React Datatable"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "box",
-        ref: "root"
+        ref: "root",
+        style: {
+          width: 1250,
+          height: 470,
+          marginTop: 0,
+          marginRight: "auto"
+        }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "paging_wrapper"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "scheduler"
       }));
     }
   }, {
@@ -104870,7 +104872,7 @@ function (_Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dataTable__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_scehdulerCalendar__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dataTable__WEBPACK_IMPORTED_MODULE_3__["default"], null));
     }
   }]);
 
@@ -104895,8 +104897,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Webix__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Webix */ "./resources/js/components/Webix.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var webix_webix_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! webix/webix.js */ "./node_modules/webix/webix.js");
+/* harmony import */ var webix_webix_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(webix_webix_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var webix_webix_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! webix/webix.css */ "./node_modules/webix/webix.css");
+/* harmony import */ var webix_webix_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(webix_webix_css__WEBPACK_IMPORTED_MODULE_3__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -104916,15 +104920,41 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
+ // import { $$ } from "webix";
 
 
+
+
+function deleteItem(id) {
+  var sel = $$("datatable_1").getSelectedId(true);
+  if (!sel) return;
+
+  for (var i = 0; i < sel.length; i++) {
+    $$("datatable_1").remove(sel[i].row);
+  }
+}
+
+function update_item() {
+  var sel = $$("datatable_1").getSelectedId();
+  if (!sel) return;
+  var row = $$("datatable_1").getItem(sel.row);
+  $$("datatable_1").updateItem(sel.row);
+}
+
+function edit_item(row_id) {
+  $$("datatable_1").editStop();
+  $$("datatable_1").editRow(row_id);
+}
 
 function getUI() {
   return {
     view: "datatable",
     container: "box",
+    id: "datatable_1",
     editable: true,
-    editaction: "custom",
+    drag: true,
+    tooltip: true,
+    editaction: "dblclick",
     pager: {
       template: "{common.first()} {common.prev()} {common.pages()} \n            {common.next()} {common.last()}",
       container: "paging_wrapper",
@@ -104937,53 +104967,58 @@ function getUI() {
     columns: [{
       id: "ref",
       header: ["Ref", {
-        content: "textFilter"
+        content: "serverFilter"
       }],
       width: 70,
-      sort: "int"
+      sort: "server"
     }, {
       id: "title",
       header: ["Title", {
-        content: "textFilter"
+        content: "serverFilter"
       }],
       editor: "text",
       width: 250,
-      sort: "string"
+      sort: "server"
     }, {
       id: "team",
       header: ["Team", {
-        content: "textFilter"
+        content: "serverFilter"
       }],
       width: 200,
-      sort: "string"
+      editor: "text",
+      sort: "server"
     }, {
       id: "client",
       header: ["Client", {
-        content: "textFilter"
+        content: "serverFilter"
       }],
       width: 120,
-      sort: "string"
+      editor: "text",
+      sort: "server"
     }, {
       id: "pm",
       header: ["PM", {
-        content: "textFilter"
+        content: "serverFilter"
       }],
       width: 120,
-      sort: "string"
+      editor: "text",
+      sort: "server"
     }, {
       id: "status",
       header: ["Status", {
-        content: "textFilter"
+        content: "serverFilter"
       }],
       width: 90,
-      sort: "string"
+      sort: "server",
+      editor: "text"
     }, {
       id: "deadline",
       header: ["Deadline", {
-        content: "textFilter"
+        content: "serverFilter"
       }],
       width: 120,
-      sort: "string"
+      editor: "text",
+      sort: "server"
     }, {
       id: "created_at",
       header: ["Date Sent", {
@@ -104992,28 +105027,37 @@ function getUI() {
       width: 150,
       sort: "server",
       editor: "text"
-    }, // {
-    //     id: "date-sent",
-    //     header: ["Date Sent", { content: "textFilter" }],
-    //     width: 120,
-    //     sort: "string"
-    // },
-    {
+    }, {
       id: "id",
       header: "Action",
       // width: 120,
-      template: "<button >Edit</button><button >Delete</button>" // sort: "string"
-
+      template: "\n                    <span>\n                        <button class=\"edit_button\" value=\"edit\" >Edit</button>\n                        <button  class=\"delete_button\" value=\"remove\" >Delete</button>\n                    </span>\n                "
     }],
-    select: "cell" // on: {
-    //     onAfterSelect: function(id) {
-    //         // console.log("this", this);
-    //         // var value = this.getItem(id).ref;
-    //         // var data = $$("data");
-    //         // console.log("value", data);
-    //     }
-    // }
-
+    save: {
+      insert: "datatable/action",
+      update: "datatable/action",
+      delete: "datatable/action"
+    },
+    onClick: {
+      delete_button: function delete_button(ev, id) {
+        deleteItem(id.row);
+      },
+      edit_button: function edit_button(ev, id) {
+        edit_item(id.row);
+      }
+    },
+    on: {
+      onBeforeLoad: function onBeforeLoad() {
+        this.showOverlay("Loading...");
+      },
+      onAfterLoad: function onAfterLoad() {
+        this.hideOverlay();
+      },
+      onAfterEditStop: function onAfterEditStop() {
+        update_item();
+      }
+    },
+    select: "row"
   };
 }
 
@@ -105022,16 +105066,10 @@ var Example =
 function (_Component) {
   _inherits(Example, _Component);
 
-  function Example(props) {
-    var _this;
-
+  function Example() {
     _classCallCheck(this, Example);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Example).call(this, props));
-    _this.state = {
-      data: []
-    };
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(Example).apply(this, arguments));
   }
 
   _createClass(Example, [{
