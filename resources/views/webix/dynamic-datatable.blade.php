@@ -44,6 +44,12 @@
 		        group:5
 		    },
 		    columns:[
+		    	{ 
+		    		id:"ch", 
+		    		header:"", 
+		    		template:"{common.checkbox()}", 
+		    		width:40
+		    	},
 		        { 
 		        	id:"ref",   		
 		        	header:[ "Ref",{content:"serverFilter"}], 		   
@@ -105,8 +111,8 @@
 		        { 
 		        	id:"id",  
 		        	header:"Action",    
-		        	width:100, 		
-		        	template:"<i onClick='edit_item(#id#)' class='hover-pointer fas fa-pencil-alt'></i> &nbsp; <i onClick='remove_item()' class='hover-pointer fas fa-trash-alt'></i>",	
+		        	width:100,
+		        	template:"<i onClick='edit_item(#id#)' class='hover-pointer fas fa-pencil-alt'></i> &nbsp; <i onClick='remove_single_item(#id#)' class='hover-pointer fas fa-trash-alt'></i>",	
 		        }
 		    ],
 		    on:{
@@ -116,8 +122,7 @@
 			    onAfterLoad:function(){
 			        this.hideOverlay();
 			    },
-			    onAfterEditStop:function(){  
-			    	console.log(arguments); 
+			    onAfterEditStop:function(){
 			    	update_item();
 			    }
 			},
@@ -128,7 +133,7 @@
 			},
 		});
 		
-		webix.ui({ 
+		webix.ui({
 		  	view:"form",
 		    container:"my_form",
 		    id:"formAddRow",
@@ -146,10 +151,10 @@
 				      		view:"text", name:"client", placeholder:"Client", inputWidth:120
 				      	},
 				      	{	
-				      		view:"text", name:"pm", placeholder:"PM", inputWidth:120
+				      		view:"combo", options: [{ id:'saif', value:'Saif' },{ id:'asad', value:'Asadullah' },'Zeeshan','Shahid'], name:"pm", inputWidth:120
 				      	},
 				      	{	
-				      		view:"text", name:"status", placeholder:"Status", inputWidth:120
+				      		view:"select", options:['Pending','Approved','Send'], name:"status",  inputWidth:120
 				      	},
 				      	{	
 				      		view:"text", name:"deadline", placeholder:"Deadline", inputWidth:150
@@ -165,7 +170,7 @@
 		      				view:"button", value:"Add",click:"window.add_item()"
 		      			}, 
 		      			{ 
-		      				view:"button", value:"Remove selected",click:"window.remove_item()"
+		      				view:"button", value:"Remove selected",click:"window.remove_items()"
 		      			}
 		      		]
 		      	}
@@ -187,11 +192,20 @@
           $$('datatable_1').editRow(id);
 		};
 
-		remove_item = function(){
-		  var sel = $$("datatable_1").getSelectedId(true);
-		  if (!sel) return;
-		  for (var i = 0; i < sel.length; i++)
-		    $$("datatable_1").remove(sel[i].row);
+		remove_single_item = function(row_id){
+		    $$("datatable_1").remove(row_id);
+		};
+
+		remove_items = function(){
+		  //var sel = $$("datatable_1").getSelectedId(true);
+		  //if (!sel) return;
+		  //for (var i = 0; i < sel.length; i++)
+		    //$$("datatable_1").remove(sel[i].row);
+		  	var checked = [];
+		  	$$("datatable_1").data.each(function(obj){
+		      	if(obj.ch) checked.push(obj.id);
+		    });
+		    $$("datatable_1").remove(checked);
 		};
 
 		edit_item = function(row_id) {
