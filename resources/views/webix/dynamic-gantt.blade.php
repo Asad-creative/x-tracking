@@ -14,12 +14,82 @@
     		<a class="btn btn-danger" href="{{ url('webix/dynamic/gantt') }}">Dynamic Gantt</a>
     	</div>
     	<br>
-		<!-- <div id="box" style="width:1200px;height:470px;margin: 0 auto;"></div> -->
+		<div id="gantt_chart" style="height:500px;margin: 0 auto;"></div>
+		<div id="date_scale" style="margin: 0 auto;"></div>
 	
     <script type="text/javascript" charset="utf-8">
     	
+    	/*var scaleHours = function() {
+			gantt.config.scale_unit = "hour";
+			gantt.config.date_scale = "%d %H : %i";
+			gantt.load("{{ url('webix/get/gantt') }}");
+		};*/
+
+		var scaleDays = function() {
+			gantt.config.scale_unit = "day";
+			gantt.config.date_scale = "%d %M";
+			gantt.load("{{ url('webix/get/gantt') }}");
+		};
+		var scaleWeeks = function() {
+			gantt.config.scale_unit = "week";
+			gantt.config.date_scale = "Week #%W";
+			gantt.load("{{ url('webix/get/gantt') }}");
+		};
+		var scaleMonths = function() {
+			gantt.config.scale_unit = "month";
+			gantt.config.date_scale = "%F, %Y";
+			gantt.load("{{ url('webix/get/gantt') }}");
+		};
+
+    	var toolbar = {
+    		container: "date_scale",
+		   	view: "toolbar",
+		   	paddingY: 0,
+		   	elements: [
+		        {
+		         	view: "segmented",
+		         	on: {
+			            onChange: function(id) {
+			               	switch (id) {
+			                  	/*case "hours":
+			                     	scaleHours();
+			                     	break;*/
+			                    case "days":
+			                     	scaleDays();
+			                     	break;
+			                  	case "weeks":
+			                     	scaleWeeks();
+			                     	break;
+			                  	case "months":
+			                     	scaleMonths();
+			                     	break;
+			                  	default:
+			                     	webix.message("Wrong scale option");
+			               }
+			            }
+		         	},
+		         	options: [/*{
+		            	id: "hours",
+		            	value: "Hours"
+		         	},*/{
+		            	id: "days",
+		            	value: "Days",
+		            	selected: true
+		         	}, {
+		            	id: "weeks",
+		            	value: "Weeks"
+		         	}, {
+		            	id: "months",
+		            	value: "Months"
+		         	}]
+		     	}
+		   ]
+		};
+
 		webix.ui({
-		  type:"space", rows:[
+			container: "gantt_chart",
+		  	type:"space", 
+		  	rows:[
 		    { 	
 			    view:"dhx-gantt",  
 			    init:function(gantt_obj){
@@ -32,7 +102,8 @@
 					dp.init(gantt_obj);
 					dp.setTransactionMode("REST");
 			    }
-		    }
+		    },
+		    toolbar
 		  ]
 		});
 	
