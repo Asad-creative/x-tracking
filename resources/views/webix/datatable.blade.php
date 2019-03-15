@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-	<link rel="stylesheet" href="{{ asset('css/webix.css') }}" type="text/css">
+	<link rel="stylesheet" href="{{ asset('css/proteus.css') }}" type="text/css">
     <script src="{{ asset('js/webix.js') }}" type="text/javascript"></script>
 
     	<!-- <div style="margin-left: 11%;">
@@ -35,7 +35,7 @@
 		    },
 		    columns:[
 		        { id:"ref",   		header:[ "Ref",{content:"textFilter"}], 			width:70, sort:"int"},
-		        { id:"title",		header:[ "Title",{content:"textFilter"}], 			width:250, sort:"string" },
+		        { id:"title", template:"{common.treetable()} #title#",		header:[ "Title",{content:"textFilter"}], 			width:250, sort:"string" },
 		        { id:"team",   		header:[ "Team",{content:"textFilter"}],          	width:200, sort:"string"},
 		        { id:"client",  	header:[ "Client",{content:"textFilter"}],         	width:120, sort:"string"},
 		        { id:"pm",    		header:[ "PM",{content:"textFilter"}],         		width:120, sort:"string"},

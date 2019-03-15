@@ -66,8 +66,9 @@ class HomeController extends Controller
         
         
         $data = [];
-        foreach ($dt as $row) {
-            $data[] = [
+        $i = 0;
+        foreach ($dt as $key=>$row) {
+            $data[$key] = [
                 "id"            => $row->id,
                 "ref"           => $row->id,
                 "title"         => $row->title,
@@ -76,8 +77,64 @@ class HomeController extends Controller
                 "pm"            => $row->pm,
                 "status"        => $row->status,
                 "deadline"      => $row->deadline,
-                "created_at"     => $row->created_at->toDateTimeString()
+                "created_at"    => $row->created_at->toDateTimeString()
             ];
+
+            if($i==3){
+                $i = 0;
+                $data[$key]["open"] = true;
+                $data[$key]["data"] = 
+                [
+                    [
+                        "id"            => 555+$row->id,
+                        "ref"           => 555+$row->id,
+                        "title"         => $row->title,
+                        "team"          => $row->team,
+                        "client"        => $row->client,
+                        "pm"            => $row->pm,
+                        "open"          => true,
+                        "data"          => [
+                            [
+                                "id"            => 5556+$row->id,
+                                "ref"           => 5556+$row->id,
+                                "title"         => $row->title,
+                                "team"          => $row->team,
+                                "client"        => $row->client,
+                                "pm"            => $row->pm,
+                                "status"        => $row->status,
+                                "deadline"      => $row->deadline,
+                                "created_at"    => $row->created_at->toDateTimeString()
+                            ]
+                        ],
+                        "status"        => $row->status,
+                        "deadline"      => $row->deadline,
+                        "created_at"    => $row->created_at->toDateTimeString()
+                    ],
+                    [
+                        "id"            => 556+$row->id,
+                        "ref"           => 556+$row->id,
+                        "title"         => $row->title,
+                        "team"          => $row->team,
+                        "client"        => $row->client,
+                        "pm"            => $row->pm,
+                        "status"        => $row->status,
+                        "deadline"      => $row->deadline,
+                        "created_at"    => $row->created_at->toDateTimeString()
+                    ],
+                    [
+                        "id"            => 557+$row->id,
+                        "ref"           => 557+$row->id,
+                        "title"         => $row->title,
+                        "team"          => $row->team,
+                        "client"        => $row->client,
+                        "pm"            => $row->pm,
+                        "status"        => $row->status,
+                        "deadline"      => $row->deadline,
+                        "created_at"    => $row->created_at->toDateTimeString()
+                    ]
+                ];
+            }
+            $i++;
         }
 
         $return = json_encode(["data"=>$data,"pos"=> (int) $skip,"total_count"=> $total]);
