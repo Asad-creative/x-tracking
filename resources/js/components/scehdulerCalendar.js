@@ -45,11 +45,11 @@ function getUI() {
         rows: [
             {
                 view: "dhx-gantt",
-               //  cdn: "https://cdn.dhtmlx.com/gantt/5.2",
+                //  cdn: "https://cdn.dhtmlx.com/gantt/5.2",
                 init: function(gantt_obj) {
                     //do nothing
-                  //   gantt_obj.addCalendar();
-                  //   console.log("gantt", gantt_obj);
+                    //   gantt_obj.addCalendar();
+                    //   console.log("gantt", gantt_obj);
                 },
                 ready: function(gantt_obj) {
                     gantt_obj.parse(tasks);
@@ -61,7 +61,12 @@ function getUI() {
 
 class SchedulerCalendar extends Component {
     render() {
-        return <Webix ui={getUI()} />;
+        return (
+            <div>
+                <h1 className="title">Webix Gantt Chart </h1>
+                <Webix ui={getUI()} />
+            </div>
+        );
     }
 }
 

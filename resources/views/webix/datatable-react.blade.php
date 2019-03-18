@@ -8,10 +8,13 @@
     <script src="https://cdn.webix.com/components/edge/scheduler/scheduler.js"></script> -->
     <script src="https://cdn.webix.com/components/edge/gantt/gantt.js"></script>
     
+<!-- <div> -->
+  <div id="app"></div>
+  <div  id="app2" ></div>
+<!-- </div> -->
 
-<div id="app"></div>
 <script src="{{ asset('js/app.js') }}"></script>
-
+<!-- <script src="{{ asset('js/app.js') }}"></script> -->
 
 
 @endsection

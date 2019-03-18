@@ -11,13 +11,11 @@ class Webix extends Component {
     render() {
         return (
             <div>
-                {/* <i className="fas fa-trash-alt" /> */}
-                <h1 className="title">Webix React Datatable</h1>
                 <div
                     id="box"
                     ref="root"
                     style={{
-                        width: 1250,
+                        width: 1300,
                         height: 470,
                         marginTop: 0,
                         marginRight: "auto"
