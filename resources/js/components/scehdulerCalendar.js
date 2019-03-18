@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import Webix from "./Webix";
+import GanttWebix from "./ganttWebix";
+import "webix/webix.js";
+import "webix/webix.css";
 
 const tasks = {
     data: [
@@ -39,8 +41,74 @@ const tasks = {
     ]
 };
 
+function scaleDays() {
+    gantt.config.scale_unit = "day";
+    gantt.config.date_scale = "%d %M";
+    gantt.load("get/gantt");
+}
+function scaleWeeks() {
+    gantt.config.scale_unit = "week";
+    gantt.config.date_scale = "Week #%W";
+    gantt.load("get/gantt");
+}
+function scaleMonths() {
+    gantt.config.scale_unit = "month";
+    gantt.config.date_scale = "%F, %Y";
+    gantt.load("get/gantt");
+}
+
+var toolbar = {
+    container: "date_scale",
+    view: "toolbar",
+    paddingY: 0,
+    elements: [
+        {
+            view: "segmented",
+            on: {
+                onChange: function(id) {
+                    switch (id) {
+                        /*case "hours":
+                             scaleHours();
+                             break;*/
+                        case "days":
+                            scaleDays();
+                            break;
+                        case "weeks":
+                            scaleWeeks();
+                            break;
+                        case "months":
+                            scaleMonths();
+                            break;
+                        default:
+                            webix.message("Wrong scale option");
+                    }
+                }
+            },
+            options: [
+                /*{
+                id: "hours",
+                value: "Hours"
+             },*/ {
+                    id: "days",
+                    value: "Days",
+                    selected: true
+                },
+                {
+                    id: "weeks",
+                    value: "Weeks"
+                },
+                {
+                    id: "months",
+                    value: "Months"
+                }
+            ]
+        }
+    ]
+};
+
 function getUI() {
     return {
+        container: "gantt_chart",
         type: "space",
         rows: [
             {
@@ -52,10 +120,15 @@ function getUI() {
                     //   console.log("gantt", gantt_obj);
                 },
                 ready: function(gantt_obj) {
-                    gantt_obj.parse(tasks);
+                    gantt_obj.load("get/gantt");
+                    var dp = new gantt_obj.dataProcessor("gantt");
+                    dp.init(gantt_obj);
+                    dp.setTransactionMode("REST");
                 }
-            }
-        ]
+            },
+            toolbar
+        ],
+        
     };
 }
 
@@ -64,7 +137,8 @@ class SchedulerCalendar extends Component {
         return (
             <div>
                 <h1 className="title">Webix Gantt Chart </h1>
-                <Webix ui={getUI()} />
+                <GanttWebix ui={getUI()} />
+                {/* <div id="date_scale" ></div> */}
             </div>
         );
     }

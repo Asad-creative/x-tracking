@@ -1,7 +1,7 @@
 import React from "react";
 import Highcharts from "highcharts";
 import ReactHighcharts from "react-highcharts";
-import HighchartsMore from "highcharts-more";
+import HighchartsMore from "highcharts/highcharts-more";
 import SolidGauge from "highcharts/modules/solid-gauge";
 HighchartsMore(ReactHighcharts.Highcharts);
 SolidGauge(ReactHighcharts.Highcharts);
@@ -122,9 +122,6 @@ const options = {
     chart: {
         type: "solidgauge",
         height: "30%",
-        style: {
-            marginBottom: "100px"
-        },
         events: {
             render: renderIcons
         }
@@ -142,8 +139,8 @@ const options = {
         backgroundColor: "none",
         shadow: false,
         style: {
-            fontSize: "16px",
-            marginBottom: "200px"
+            fontSize: "16px"
+            // marginBottom: "200px"
             // height: '300px'
         },
         pointFormat:
@@ -156,53 +153,77 @@ const options = {
         }
     },
 
-    pane: {
-        startAngle: 0,
-        endAngle: 360,
-        background: [
-            {
-                // Track for Move
-                outerRadius: "112%",
-                innerRadius: "88%",
-                backgroundColor: Highcharts.Color(
-                    Highcharts.getOptions().colors[0]
-                )
-                    .setOpacity(0.3)
-                    .get(),
-                borderWidth: 0
-            },
-            {
-                // Track for Exercise
-                outerRadius: "87%",
-                innerRadius: "63%",
-                startAngle: 50,
-                backgroundColor: Highcharts.Color(
-                    Highcharts.getOptions().colors[1]
-                )
-                    .setOpacity(0.3)
-                    .get(),
-                borderWidth: 0
-            },
-            {
-                // Track for Stand
-                outerRadius: "62%",
-                innerRadius: "38%",
-                backgroundColor: Highcharts.Color(
-                    Highcharts.getOptions().colors[2]
-                )
-                    .setOpacity(0.3)
-                    .get(),
-                borderWidth: 0
-            }
-        ]
-    },
+    pane: [
+        {
+            startAngle: 0,
+            endAngle: 360,
+            background: [
+                {
+                    // Track for Move
+                    outerRadius: "112%",
+                    innerRadius: "88%",
+                    backgroundColor: Highcharts.Color(
+                        Highcharts.getOptions().colors[0]
+                    ),
+                    borderWidth: 0
+                }
+            ]
+        },
+        {
+            startAngle: 360,
+            endAngle: 0,
+            background: [
+                {
+                    // Track for Move
+                    outerRadius: "87%",
+                    innerRadius: "63%",
+                    backgroundColor: Highcharts.Color(
+                        Highcharts.getOptions().colors[0]
+                    ),
+                    borderWidth: 0
+                }
+            ]
+        },
+        {
+            startAngle: 360,
+            endAngle: 0,
+            background: [
+                {
+                    // Track for Move
+                    outerRadius: "62%",
+                    innerRadius: "38%",
+                    backgroundColor: Highcharts.Color(
+                        Highcharts.getOptions().colors[0]
+                    ),
+                    borderWidth: 0
+                }
+            ]
+        }
+    ],
 
-    yAxis: {
-        min: 0,
-        max: 100,
-        lineWidth: 0,
-        tickPositions: []
-    },
+    yAxis: [
+        {
+            min: 0,
+            max: 100,
+            pane: 0,
+            lineWidth: 0,
+            tickPositions: []
+        },
+        {
+            min: 0,
+            max: 100,
+            pane: 1,
+            lineWidth: 0,
+            tickPositions: []
+        },
+        {
+            min: 0,
+            max: 100,
+            pane: 2,
+            lineWidth: 0,
+            tickPositions: []
+        }
+    ],
 
     plotOptions: {
         solidgauge: {
@@ -218,6 +239,7 @@ const options = {
     series: [
         {
             name: "Move",
+            yAxis: 0,
             data: [
                 {
                     color: Highcharts.getOptions().colors[0],
@@ -229,6 +251,7 @@ const options = {
         },
         {
             name: "Exercise",
+            yAxis: 1,
             data: [
                 {
                     color: Highcharts.getOptions().colors[1],
@@ -240,6 +263,7 @@ const options = {
         },
         {
             name: "Stand",
+            yAxis: 2,
             data: [
                 {
                     color: Highcharts.getOptions().colors[2],
@@ -255,7 +279,7 @@ const options = {
 const ProgressChart = () => {
     return (
         <div>
-            <h1 className="title" >Gauge Activity</h1>
+            <h1 className="title">Gauge Activity</h1>
             <ReactHighcharts config={options} />
         </div>
     );
