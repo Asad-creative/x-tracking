@@ -50,6 +50,10 @@ Route::group([
 
 Route::get('/webix/get/datatable', 'HomeController@datatable');
 
+Route::get('gauge', function () {
+    return view('highcharts.gauge');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
