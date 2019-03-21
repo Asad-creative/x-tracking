@@ -54,6 +54,10 @@ Route::get('gauge', function () {
     return view('highcharts.gauge');
 });
 
+Route::get('ck-editor', function () {
+    return view('ck-editor.document-editor');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
