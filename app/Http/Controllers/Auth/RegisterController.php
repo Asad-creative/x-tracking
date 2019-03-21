@@ -4,14 +4,18 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Company;
+use App\Hostname;
+use App\Website;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Hyn\Tenancy\Contracts\Repositories\HostnameRepository;
 use Hyn\Tenancy\Contracts\Repositories\WebsiteRepository;
-use App\Hostname;
-use App\Website;
+
+use Illuminate\Http\Request;
+use Request as URLRequest;
+use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
@@ -42,8 +46,8 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
-        //$this->middleware('guest');
+        //$this->middleware('auth');
+        $this->middleware('guest');
     }
 
     /**
@@ -71,6 +75,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+
        $user =  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -87,6 +93,7 @@ class RegisterController extends Controller
         | CREATE THE WEBSITE
         |--------------------------------------------------------------------------
          */
+
         $website = new Website(['uuid' => $data['database']]);
 
         app(WebsiteRepository::class)->create($website);
@@ -97,9 +104,30 @@ class RegisterController extends Controller
         | CREATE THE HOSTNAME
         |--------------------------------------------------------------------------
          */
-        $hostname = new Hostname(['fqdn' => $data['domain']]);
+        $subDomain    = $this->createSubdomain($data['domain']);
+        $hostname = new Hostname(['fqdn' => $subDomain]);
         app(HostnameRepository::class)->attach($hostname, $website);
-
+        $user->input_data =  $data ;
         return $user;
+    }
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+      //  $this->guard()->login($user);
+        // todo # go to subdomain from here
+        $finalURL  = str_replace(URLRequest::getHost(), $this->createSubdomain($user->input_data['domain']), \URL::to('/'));
+        return redirect($finalURL);
+      //  return $this->registered($request, $user)  ?: redirect($this->redirectPath());
+    }
+
+    public function createSubdomain($domain)
+    {
+      $subDomain = $domain.'.'.URLRequest::getHost();
+
+      return $subDomain;
     }
 }

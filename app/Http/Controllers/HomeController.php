@@ -7,6 +7,7 @@ use App\Datatable;
 use App\Task;
 use App\Link;
 
+
 class HomeController extends Controller
 {
     /**
@@ -26,7 +27,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        $users = User::select('name','email','created_at')->where('id',"!=",Auth::id())->get()->toArray();
+        return view('home',["users"=>$users]);
     }
 
     public function datatable(Request $request)

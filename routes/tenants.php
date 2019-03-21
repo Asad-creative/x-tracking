@@ -8,10 +8,9 @@ Route::middleware('web')
         #Auth::routes();
         Route::get('/', function () {
 
-            $project =  Project::all()->toArray();
-            dd($project);
-            exit;
-            return view('welcome');
+            $projects =  Project::all()->toArray();
+
+            return view('customers.project.list',['projects'=>$projects]);
         });
         Route::get('/home', 'HomeController@index')->name('home');
     });

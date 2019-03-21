@@ -5,23 +5,17 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Projects</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
 
-                    You are logged in!
                     <table class="table table-hover">
 
                     <thead>
 
-                      <th>Username</th>
+                      <th>Id</th>
 
-                      <th>Email</th>
+                      <th>Name</th>
 
                       <th>Created At</th>
 
@@ -29,21 +23,21 @@
 
                     <tbody>
 
-@foreach($users as $key=>$user)
+                        @foreach($projects as $key=>$project)
 
 
                         <tr>
 
-                          <td>{{$user['name']}} </td>
+                          <td>{{$project['id']}} </td>
 
-                          <td>{{$user['email']}} </td>
+                          <td>{{$project['name']}} </td>
 
-                          <td>{{$user['created_at']}} </td>
+                          <td>{{$project['created_at']}} </td>
 
 
 
                         </tr>
-@endforeach
+                        @endforeach
                     </tbody>
 
                 </table>
