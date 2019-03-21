@@ -1,5 +1,5 @@
 <?php
-
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,14 +13,48 @@
 
 Route::get('/', function () {
     //return view('welcome');
-    return view('dashboard');
+    return view('Proteus');
 });
 
+Route::group([
+	'prefix' => 'webix'
+], function () {
+	Route::get('datatable', function () {
+	    return view('webix.datatable');
+	});
 
-Route::get('/webix/datatable', function () {
-    return view('webix.datatable');
+	Route::get('dynamic/datatable', function () {
+	    return view('webix.dynamic-datatable');
+	});
+
+	Route::get('get/datatable', 'HomeController@datatable');
+	Route::post('datatable/action', 'HomeController@datatable_action');
+
+	Route::get('organogram', function () {
+	    return view('webix.organogram');
+	});
+
+	Route::get('gantt', function () {
+	    return view('webix.gantt');
+	});
+
+	Route::get('dynamic/gantt', function () {
+	    return view('webix.dynamic-gantt');
+	});
+
+	Route::get('get/gantt', 'HomeController@gantt');
+
+	Route::resource('gantt/task', 'TaskController');
+	Route::resource('gantt/link', 'LinkController');
+});
+
+Route::get('/webix/get/datatable', 'HomeController@datatable');
+
+Route::get('gauge', function () {
+    return view('highcharts.gauge');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
