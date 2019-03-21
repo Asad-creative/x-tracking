@@ -49059,6 +49059,11 @@ if (token) {
 //     encrypted: true
 // });
 
+
+$("button").click(function () {
+  $("#newpost").toggle();
+});
+
 /***/ }),
 
 /***/ "./resources/js/components/ExampleComponent.vue":

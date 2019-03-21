@@ -1,25 +1,30 @@
 @extends('layouts.app')
 
 @section('content')
-	<link rel="stylesheet" href="{{ asset('css/webix.css') }}" type="text/css">
-    <script src="{{ asset('js/webix.js') }}" type="text/javascript"></script>
+
+
 	<div id="box" style="width:1200px;height:600px;margin: 0 auto;"></div>
     <script type="text/javascript" charset="utf-8">
     webix.ready(function(){
-    	dtable = new webix.ui({
-		    container:"box",
-		    view:"datatable",
-		    columns:[
-		        { id:"ref",   		header:"Ref",    		width:100, sort:"int"},
-		        { id:"title",    	header:"Title" , 		width:250, sort:"string"},
-		        { id:"team",   		header:"Team",         	width:200, sort:"string"},
-		        { id:"client",  	header:"Client",        width:100, sort:"string"},
-		        { id:"pm",    		header:"PM",          	width:100, sort:"string"},
-		        { id:"status",    	header:"Status",        width:100, sort:"string"},
-		        { id:"deadline",    header:"Deadline",      width:100, sort:"string"},
-		        { id:"date-sent",   header:"Date Sent",     width:100, sort:"string"}
+
+			var paginate = {
+  view:"datatable",
+  columns:[
+		        { id:"ref",   		header:["Ref", {content:"numberFilter"}],    	 sort:"int",  fillspace:.5},
+		        { id:"title",    	header:["Title" , {content:"textFilter", placeholder:" Sort by Title" }],	 sort:"string",  fillspace:3},
+		        { id:"team",   		header:["Team", {content:"selectFilter", select:" Select Team",}],       	 sort:"string",  fillspace:2},
+		        { id:"client",  	header:"Client",      sort:"string",  fillspace:1},
+		        { id:"pm",    		header:"PM",           sort:"string",  fillspace:1},
+		        { id:"status",    	header:"Status",        sort:"string",  fillspace:1},
+		        { id:"deadline",    header:"Deadline",      sort:"string",  fillspace:1},
+		        { id:"date-sent",   header:"Date Sent",     sort:"string",  fillspace:1}
 		    ],
-		    data:[
+
+				select:"row",
+  yCount:10,
+  scroll:false,
+  pager:"pager",
+	data:[
 		        {
 				    "id": 1,
 				    "ref": 1,
@@ -1119,9 +1124,29 @@
 				    "status": "Pending",
 				    "deadline": "Jan 7, 2020",
 				    "date-sent": "Mar 15, 2018"
-				  }
-		    ]
+					}
+		    ]};
+				var pager = {
+  view:"pager",
+  id:"pager",
+	css:"paginate-box",
+	template:"{common.prev()} {common.pages()} {common.next()}",
+  size:10,
+  group:5
+};
+
+    webix.ui({
+			container:"box",
+			rows:[
+			paginate,
+      pager]
+			
+		   
+		 
 		});
-	});
-    </script>
+		
+			});
+
+		</script>
+		 
 @endsection

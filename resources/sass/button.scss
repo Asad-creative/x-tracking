@@ -1,0 +1,40 @@
+a.btn,
+button.btn {
+	padding: $button-padding;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	color: $secondary-background-colour;
+	border-radius: $border-radius;
+	&:focus,
+	&:active,
+	&.active,
+	&.focus {
+		outline: 0;
+		box-shadow: $btn-focus-box-shadow;
+	}
+	&.dark {
+		color: red;
+		background: #ffcc00;
+	}
+}
+
+a.btn-outline,
+button.btn-outline {
+	background: transparent;
+	border-color: $primary;
+	color: $primary;
+	&:hover {
+		background: $primary;
+		color: $secondary-background-colour;
+	}
+	&.dark {
+		color: #898D94;
+		border-color: #898D94;
+		background: transparent;
+		&:hover {
+			background: #757B86;
+			color: $primary-button-colour;
+		}
+	}
+}

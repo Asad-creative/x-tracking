@@ -1,0 +1,75 @@
+.main{
+    text-align:center;
+    margin:30px 0;
+  }
+
+.color-box-holder {
+    margin: 20px 0 ; 
+  .color-box {
+    height:90px;
+    width:100%;
+    border-radius: 6px 6px 6px 6px;
+    margin: 0 auto;
+    background:red;
+    text-align:center;
+    border:1px solid #fff;
+
+    &.primery01{
+        background: $primery01;
+    }
+    &.primery02{
+        background: $primery02;
+    }
+    &.primery03{
+        background: $primery03;
+    }
+    &.primery04{
+        background: $primery04;
+    }
+    &.primery05{
+        background: $primery05;
+    }
+    &.primery06{
+        background: $primery06;
+    }
+    &.secondary01{
+        background: $secondary01;
+    }
+    &.secondary02{
+        background: $secondary02;
+    }
+    &.secondary03{
+        background: $secondary03;
+    }
+    &.secondary04{
+        background: $secondary04;
+    }
+    &.secondary05{
+        background: $secondary05;
+    }
+    &.secondary06{
+        background: $secondary06;
+    }
+    &.secondary07{
+        background: $secondary07;
+    }
+    &.graph01{
+        background: $graph01;
+    }
+    &.graph02{
+        background: $graph02;
+    }
+    &.graph03{
+        background: $graph03;
+    }
+    
+  }
+  code { text-align:center;
+    margin-top: 10px;
+    display: block;
+    span {
+        text-align:center;
+        display: block;
+    }
+}
+}

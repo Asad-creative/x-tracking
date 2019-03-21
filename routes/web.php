@@ -13,13 +13,17 @@
 
 Route::get('/', function () {
     //return view('welcome');
-    return view('pages.demo');
+    return view('pages.home');
 });
 
-
-Route::get('/webix/datatable', function () {
+Route::get('/webix-table', function () {
     return view('webix.datatable');
 });
+
+Route::get('/demo-1', function () {
+    return view('pages.demo-1');
+});
+
 
 Auth::routes();
 
@@ -37,9 +41,9 @@ Route::get('/about', function () {
 });
 
 
-Route::get('/blog', function () {
+Route::get('/calendar', function () {
     //return view('welcome');
-    return view('pages.blog');
+    return view('pages.about');
 });
 
 
@@ -64,4 +68,36 @@ Route::get('/contact', function () {
 
 Route::get('/welcome', function () {
     return view('pages.demo');
+});
+
+Route::get('/color', function () {
+    return view('pages.color');
+});
+
+// Index / Navigation
+Route::get('all', function () {
+    return view('all');
+});
+
+// Style Guide
+Route::get('style-guide', function () {
+    return view('style-guide');
+});
+
+
+// Tree Table
+Route::get('/treetable', function () {
+    return view('pages.tree-table');
+});
+
+
+//Pagination
+Route::get('/pagination', function () {
+    return view('webix.pagination');
+});
+
+
+//Filter Demo
+Route::get('/filter', function () {
+    return view('webix.filter');
 });

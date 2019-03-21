@@ -1,31 +1,91 @@
+// Typography
+$font-family-sans-serif: 'Muli', sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
 
-// // Body
-// $body-bg: #f8fafc;
+//Font Size
+$font-size-xxl: 1.5625rem;      //25px
+$font-size-xl:	1.125rem;       //18px
+$font-size-l:   1rem;           //16px
+$font-size-m:   0.875rem;       //14px 
+$font-size-s:   0.75rem;        //12px
+$font-size-xs: 	0.625rem;       //10px
 
-// // Typography
-// $font-family-sans-serif: "Nunito", sans-serif;
-// $font-size-base: 0.9rem;
-// $line-height-base: 1.6;
+//Fonts Family 
+$secondary-font: 'Muli', sans-serif;
+$primary-font: 'Ubuntu', sans-serif;
 
-// // Colors
-// // $blue: #3490dc;
-// // $indigo: #6574cd;
-// // $purple: #9561e2;
-// // $pink: #f66D9b;
-// // $red: #e3342f;
-// // $orange: #f6993f;
-// // $yellow: #ffed4a;
-// // $green: #38c172;
-// // $teal: #4dc0b5;
-// // $cyan: #6cb2eb;
-// $primary-bg: #3490dc;
-// $primary-color: #cdcdcd;
-// $primary-title:#444;
-// $ligt-gray-bg:#f5f5f5;
-// $ligt-gray-color:#f5f5f5;
-// $white-color:#fff;
-// $black-color:#000;
+//Fonts color
+$primary-font-colour:#FFFFFF;
+$secondary-font-color:#C1C4D3;
+$primary01-font-color:#414957;
+$primery04-font-color: #898D94;
+
+//Font weight
+$font-weight-bold: 700;
+$font-weight-semi-bold: 600;
+$font-weight-normal: 400;
+
+//Background colour
+$primary-background-colour: #20202D;
+$secondary-background-colour:#272B38;
+
+//Button Color
+$primary-button-colour: #272B38;
+$secondary-button-colour:#898D94;
+$button-padding: 8px 28px;
+$btn-focus-box-shadow:none;
+$border-radius: 4px 4px 4px 4px;
 
 
+//Primary Colours 
+$primery01:#20202D;
+$primery02:#272B38;
+$primery03:#414957;
+$primery04:#898D94;
+$primery05:#FACF19;
+$primery06:#FFF;
+
+//Secondary Colours
+$secondary01:#37A5FF;
+$secondary02:#01C0C8;
+$secondary03:#FD5959;
+$secondary04:#0081AF;
+$secondary05:#3EAEE0;
+$secondary06:#73D390;
+$secondary07:#F0BA06;
+
+//Graph Colours
+$graph01:#37A5FF;
+$graph02:#01C0C8;
+$graph03:#FD5959;
+// Body
+$body-bg: $primary-background-colour;
+$body-color: $primary-font-colour;
 
 
+$primary:$primery05;
+
+
+// Border Color
+$primery-border-color:#DADEE0;
+$white-border-color:#ffffff;
+$grey-border-color:#e7e9f2;
+$blue-border-color:#1787a2;
+$dark-grey-border-color:#898D94;
+// Grey Color
+$grey-bg:#EBEDF0;
+
+
+// Icon Color
+
+$primery01-icon-color:#20202D;
+$primery02-icon-color:#272B38;
+$primery03-icon-color:#414957;
+$primery04-icon-color:#898D94;
+$primery05-icon-color:#FACF19;
+$primery06-icon-color:#FFF;
+
+// Radio Color
+$radio-normal:#f0f0f0;
+$radio-active:#f0f0f0;

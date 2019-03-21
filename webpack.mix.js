@@ -22,6 +22,8 @@ mix.js('resources/js/app.js', 'public/js')
   mix.copy(paths.webix + 'webix.js', 'public/js/webix.js');
   mix.copy(paths.webix + 'fonts', 'public/css/fonts');
 
+  mix.copy('resources/images/', 'public/images/' , false);
+
    mix.sass('resources/sass/app.scss', 'public/css')
    .options({
         postCss: [
@@ -33,4 +35,5 @@ mix.js('resources/js/app.js', 'public/js')
       paths.webix + 'webix.css',
   ], 'public/css/webix.css');
 
-   mix.copyDirectory('resources/images', 'public/images');
+
+

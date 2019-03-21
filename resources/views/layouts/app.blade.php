@@ -8,9 +8,12 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <link rel="stylesheet" href="{{ asset('css/webix.css') }}" type="text/css">
+<script src="{{ asset('js/webix.js') }}" type="text/javascript"></script>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -39,6 +42,14 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        <li class="nav-item"><a class="nav-link" href="{{ url('/welcome') }}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link"  href="{{ url('/webix-table') }}">Webix Table</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('/calendar') }}">Calendar</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('/treetable') }}">Tree Table</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('/pagination') }}">Pagination</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('/filter') }}">Filter</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('/contact') }}">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('/color') }}">Color</a></li>
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

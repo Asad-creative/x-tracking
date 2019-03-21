@@ -1,0 +1,12 @@
+textarea,
+input,
+select,
+button {
+    &:focus{
+        outline: none;
+    }
+
+}
+div.webix_inp_static{
+    outline: none
+}
