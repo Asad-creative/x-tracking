@@ -3,10 +3,15 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Company;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Hyn\Tenancy\Contracts\Repositories\HostnameRepository;
+use Hyn\Tenancy\Contracts\Repositories\WebsiteRepository;
+use App\Hostname;
+use App\Website;
 
 class RegisterController extends Controller
 {
@@ -37,7 +42,8 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('auth');
+        //$this->middleware('guest');
     }
 
     /**
@@ -52,6 +58,8 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'database' => ['required', 'string', 'min:6','unique:websites,uuid'],
+            'domain' => ['required', 'string', 'min:6','unique:hostnames,fqdn'],
         ]);
     }
 
@@ -63,10 +71,35 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+       $user =  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        /*Company::create([
+          'name' => $data['client_name'],
+          'user_id' => $user->id,
+        ]);*/
+
+        /*
+        |--------------------------------------------------------------------------
+        | CREATE THE WEBSITE
+        |--------------------------------------------------------------------------
+         */
+        $website = new Website(['uuid' => $data['database']]);
+
+        app(WebsiteRepository::class)->create($website);
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | CREATE THE HOSTNAME
+        |--------------------------------------------------------------------------
+         */
+        $hostname = new Hostname(['fqdn' => $data['domain']]);
+        app(HostnameRepository::class)->attach($hostname, $website);
+
+        return $user;
     }
 }
