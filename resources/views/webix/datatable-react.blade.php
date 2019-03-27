@@ -8,9 +8,14 @@
     <!-- <script src="https://cdn.webix.com/components/edge/ckeditor/ckeditor.js"></script>
     <script src="https://cdn.webix.com/components/edge/scheduler/scheduler.js"></script> -->
     <script src="https://cdn.webix.com/components/edge/gantt/gantt.js"></script>
+    <!-- <script src="https://code.highcharts.com/highcharts.js"></script> -->
+    <!-- <script src="https://code.highcharts.com/highcharts-more.js"></script> -->
+    <!-- <script src="https://code.highcharts.com/modules/solid-gauge.js"></script> -->
     
 <!-- <div> -->
   <div id="app"></div>
+  <h1>Heading from laravel</h1>
+  <div  id="app2" ></div>
   
 <!-- </div> -->
 

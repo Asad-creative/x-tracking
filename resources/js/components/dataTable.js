@@ -22,10 +22,11 @@ function edit_item(row_id) {
 }
 
 function multipleDelete() {
-    var list = $$("datatable_1");
-    var sel = list.getSelectedId(true);
-    if (!sel) return;
-    for (var i = 0; i < sel.length; i++) list.remove(sel[i]);
+    var checked = [];
+    $$("datatable_1").data.each(function(obj) {
+        if (obj.ch) checked.push(obj.id);
+    });
+    $$("datatable_1").remove(checked);
 }
 
 function getUI() {
@@ -46,7 +47,7 @@ function getUI() {
                 ]
             },
             {
-                view: "datatable",
+                view: "treetable",
                 navigation: true,
                 id: "datatable_1",
                 editable: true,
@@ -80,6 +81,8 @@ function getUI() {
                         id: "title",
                         header: ["Title", { content: "serverFilter" }],
                         editor: "text",
+                        template:
+                            "{common.treetable()} <strong>#title#</strong>",
                         width: 250,
                         sort: "server"
                     },
