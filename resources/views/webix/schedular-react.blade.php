@@ -14,8 +14,7 @@
     
 <!-- <div> -->
   <div id="app"></div>
-  <h1>Heading from laravel</h1>
-  <div  id="app2" ></div>
+  
   
 <!-- </div> -->
 

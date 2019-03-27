@@ -11,7 +11,7 @@ class Editor extends Component {
                 <h1 className="title">Using CKEditor 5 build in React</h1>
                 <CKEditor
                     editor={DecoupledEditor}
-                      data={localStorage.getItem("template")}
+                    data={localStorage.getItem("template")}
                     onInit={editor => {
                         editor.ui
                             .getEditableElement()
@@ -25,8 +25,6 @@ class Editor extends Component {
                     onChange={(event, editor) => {
                         const data = editor.getData();
                         localStorage.setItem("template", data);
-
-                        console.log({ event, editor, data });
                     }}
                 />
             </div>

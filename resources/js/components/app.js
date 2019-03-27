@@ -4,29 +4,45 @@ import SchedulerCalendar from "./scehdulerCalendar";
 import Example from "./dataTable";
 import ProgressChart from "./progressChart";
 import Editor from "./ckEditor";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 class App extends Component {
     render() {
         return (
             <div>
-                <Example />
+                <BrowserRouter>
+                    <div>
+                        <Switch>
+                            <Route
+                                exact
+                                path={`/react/webix/datatable`}
+                                component={Example}
+                            />
+                            <Route
+                                exact
+                                path={`/react/webix/gantt`}
+                                component={SchedulerCalendar}
+                            />
+                            <Route
+                                exact
+                                path={`/react/gauge`}
+                                component={ProgressChart}
+                            />
+                            <Route
+                                exact
+                                path={`/react/ck-editor`}
+                                component={Editor}
+                            />
+                        </Switch>
+                    </div>
+                </BrowserRouter>
+                {/* <Example />
                 <SchedulerCalendar />
                 <ProgressChart />
-            </div>
-        );
-    }
-}
-
-class App2 extends Component {
-    render() {
-        return (
-            <div>
-                <Editor />
+                <Editor /> */}
             </div>
         );
     }
 }
 
 ReactDOM.render(<App />, document.getElementById("app"));
-
-ReactDOM.render(<App2 />, document.getElementById("app2"));

@@ -34,6 +34,7 @@
         "highcharts": "^7.0.3",
         "postcss-css-variables": "^0.12.0",
         "react-highcharts": "^16.0.2",
+        "react-router-dom": "^5.0.0",
         "webix": "^6.2.1"
     }
 }
