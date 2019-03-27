@@ -46,6 +46,10 @@ Route::group([
 
 	Route::resource('gantt/task', 'TaskController');
 	Route::resource('gantt/link', 'LinkController');
+
+	Route::get('schedular', function () {
+	    return view('webix.schedular');
+	});
 });
 
 Route::get('/webix/get/datatable', 'HomeController@datatable');
