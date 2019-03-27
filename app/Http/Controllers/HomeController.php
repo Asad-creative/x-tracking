@@ -27,7 +27,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-
         $users = User::select('name','email','created_at')->where('id',"!=",Auth::id())->get()->toArray();
         return view('home',["users"=>$users]);
     }
@@ -60,16 +59,13 @@ class HomeController extends Controller
         }
 
         $total = $dt->count();
-        //sort[team]
-        $dt = $dt->skip($skip)->take($take);
+        $dt = $dt->where('parent_id',0)->orderBy('sort_order','ASC')->skip($skip)->take($take);
         if (isset($input['sort'])) {
             $dt = $dt->orderBy(array_keys($input['sort'])[0], array_values($input['sort'])[0]);
         }
         $dt = $dt->get();
         
-        
         $data = [];
-        $i = 0;
         foreach ($dt as $key=>$row) {
             $data[$key] = [
                 "id"            => $row->id,
@@ -83,67 +79,44 @@ class HomeController extends Controller
                 "created_at"    => $row->created_at->toDateTimeString()
             ];
 
-            if($i==3){
-                $i = 0;
+            $childs = Datatable::where('parent_id',$row->id)->orderBy('sort_order','ASC')->get();
+            if($childs){
                 $data[$key]["open"] = true;
-                $data[$key]["data"] = 
-                [
-                    [
-                        "id"            => 555+$row->id,
-                        "ref"           => 555+$row->id,
-                        "title"         => $row->title,
-                        "team"          => $row->team,
-                        "client"        => $row->client,
-                        "pm"            => $row->pm,
-                        "open"          => true,
-                        "data"          => [
-                            [
-                                "id"            => 5556+$row->id,
-                                "ref"           => 5556+$row->id,
-                                "title"         => $row->title,
-                                "team"          => $row->team,
-                                "client"        => $row->client,
-                                "pm"            => $row->pm,
-                                "status"        => $row->status,
-                                "deadline"      => $row->deadline,
-                                "created_at"    => $row->created_at->toDateTimeString()
-                            ]
-                        ],
-                        "status"        => $row->status,
-                        "deadline"      => $row->deadline,
-                        "created_at"    => $row->created_at->toDateTimeString()
-                    ],
-                    [
-                        "id"            => 556+$row->id,
-                        "ref"           => 556+$row->id,
-                        "title"         => $row->title,
-                        "team"          => $row->team,
-                        "client"        => $row->client,
-                        "pm"            => $row->pm,
-                        "status"        => $row->status,
-                        "deadline"      => $row->deadline,
-                        "created_at"    => $row->created_at->toDateTimeString()
-                    ],
-                    [
-                        "id"            => 557+$row->id,
-                        "ref"           => 557+$row->id,
-                        "title"         => $row->title,
-                        "team"          => $row->team,
-                        "client"        => $row->client,
-                        "pm"            => $row->pm,
-                        "status"        => $row->status,
-                        "deadline"      => $row->deadline,
-                        "created_at"    => $row->created_at->toDateTimeString()
-                    ]
-                ];
             }
-            $i++;
+            foreach($childs as $child_key => $child){
+                $data[$key]["data"][$child_key] =  [
+                    "id"            => $child->id,
+                    "ref"           => $child->id,
+                    "title"         => $child->title,
+                    "team"          => $child->team,
+                    "client"        => $child->client,
+                    "pm"            => $child->pm,
+                    "status"        => $child->status,
+                    "deadline"      => $child->deadline,
+                    "created_at"    => $child->created_at->toDateTimeString()
+                ];
+
+                $descendents = Datatable::where('parent_id',$child->id)->orderBy('sort_order','ASC')->get();
+                if($descendents){
+                    $data[$key]["data"][$child_key]["open"] = true;
+                }
+                foreach($descendents as $descendent_key => $descendent){
+                    $data[$key]["data"][$child_key]["data"][$descendent_key] =  [
+                        "id"            => $descendent->id,
+                        "ref"           => $descendent->id,
+                        "title"         => $descendent->title,
+                        "team"          => $descendent->team,
+                        "client"        => $descendent->client,
+                        "pm"            => $descendent->pm,
+                        "status"        => $descendent->status,
+                        "deadline"      => $descendent->deadline,
+                        "created_at"    => $descendent->created_at->toDateTimeString()
+                    ];
+                }
+            }
         }
 
         $return = json_encode(["data"=>$data,"pos"=> (int) $skip,"total_count"=> $total]);
-        /*echo "<pre>";
-        print_r($return);
-        die;*/
         return $return;
     }
 
@@ -179,6 +152,23 @@ class HomeController extends Controller
             $dt->deadline   = $request->deadline;
      
             $dt->save();
+
+            return response()->json([
+                "action"=> "updated"
+            ]);
+        }
+
+        if($input['webix_operation'] == 'update_sort'){
+
+            $changed_row = Datatable::find($request->row_id);
+            $old_row = Datatable::where('parent_id',$request->parent_id)
+                        ->where('sort_order', $request->sort_order)
+                        ->update(['sort_order'=> $changed_row->sort_order]);
+ 
+            $changed_row->parent_id = $request->parent_id;
+            $changed_row->sort_order  = $request->sort_order;
+     
+            $changed_row->save();
 
             return response()->json([
                 "action"=> "updated"

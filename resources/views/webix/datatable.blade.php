@@ -43,8 +43,54 @@
 		        { id:"deadline",    header:[ "Deadline",{content:"textFilter"}],      	width:120, sort:"string"},
 		        { id:"date-sent",   header:[ "Date Sent",{content:"textFilter"}],     	width:120, sort:"string"}
 		    ],
-		    url:"{{ url('data.json') }}"
-		});
+		    //url:"{{ url('data.json') }}"
+		    data:[
+		        {
+				    "id": 1,
+				    "ref": 1,
+				    "title": "et, lacinia vitae,",
+				    "team": "Mercedes O. Vaughan",
+				    "client": "Vera",
+				    "pm": "Armand",
+				    "status": "Send",
+				    "deadline": "Nov 6, 2019",
+				    "date-sent": "Sep 1, 2018"
+				  },
+				  {
+				    "id": 2,
+				    "ref": 2,
+				    "title": "eu nibh vulputate mauris sagittis",
+				    "team": "Xena J. Jarvis",
+				    "client": "Kennedy",
+				    "pm": "Arthur",
+				    "status": "Pending",
+				    "deadline": "Oct 10, 2018",
+				    "date-sent": "Sep 25, 2018"
+				  },
+				  {
+				    "id": 3,
+				    "ref": 3,
+				    "title": "consectetuer, cursus",
+				    "team": "Miranda V. Carver",
+				    "client": "Zelda",
+				    "pm": "Hamilton",
+				    "status": "Send",
+				    "deadline": "Sep 4, 2018",
+				    "date-sent": "May 10, 2018"
+				  },
+				  {
+				    "id": 4,
+				    "ref": 4,
+				    "title": "laoreet lectus quis",
+				    "team": "Aline U. Whitney",
+				    "client": "Cole",
+				    "pm": "Dale",
+				    "status": "Send",
+				    "deadline": "May 14, 2019",
+				    "date-sent": "Apr 29, 2018"
+				  }
+				]
+			});
 	
     </script>
 @endsection

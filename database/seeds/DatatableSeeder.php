@@ -22,6 +22,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Armand",
             "status"=> "Send",
             "deadline"=> "Nov 6, 2019",  
+            "sort_order"=>1
             ],
             [
             "id"=> 2,
@@ -31,6 +32,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Arthur",
             "status"=> "Pending",
             "deadline"=> "Oct 10, 2018",
+            "sort_order"=>2
             ],
             [
             "id"=> 3,
@@ -40,6 +42,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Hamilton",
             "status"=> "Send",
             "deadline"=> "Sep 4, 2018",
+            "sort_order"=>3
             ],
             [
             "id"=> 4,
@@ -49,6 +52,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Dale",
             "status"=> "Send",
             "deadline"=> "May 14, 2019",
+            "sort_order"=>4
             ],
             [
             "id"=> 5,
@@ -58,6 +62,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Ronan",
             "status"=> "Send",
             "deadline"=> "Jun 9, 2019",
+            "sort_order"=>5
             ],
             [
             "id"=> 6,
@@ -67,6 +72,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Rogan",
             "status"=> "Send",
             "deadline"=> "Sep 24, 2018",
+            "sort_order"=>6
             ],
             [
             "id"=> 7,
@@ -75,7 +81,9 @@ class DatatableSeeder extends Seeder
             "client"=> "Reed",
             "pm"=> "Troy",
             "status"=> "Send",
-            "deadline"=> "Apr 8, 2018",     ],
+            "sort_order"=>7,
+            "deadline"=> "Apr 8, 2018",     
+            ],
             [
             "id"=> 8,
             "title"=> "nulla ante, iaculis nec, eleifend non, dapibus rutrum,",
@@ -83,7 +91,9 @@ class DatatableSeeder extends Seeder
             "client"=> "Keegan",
             "pm"=> "Roth",
             "status"=> "Pending",
-            "deadline"=> "May 14, 2019",    ],
+            "sort_order"=>8,
+            "deadline"=> "May 14, 2019",    
+            ],
             [
             "id"=> 9,
             "title"=> "euismod in, dolor. Fusce feugiat.",
@@ -92,6 +102,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Theodore",
             "status"=> "Send",
             "deadline"=> "Aug 23, 2019",
+            "sort_order"=>9
             ],
             [
             "id"=> 10,
@@ -101,6 +112,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Allen",
             "status"=> "Send",
             "deadline"=> "Aug 22, 2019",
+            "sort_order"=>10
             ],
             [
             "id"=> 11,
@@ -110,6 +122,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Justin",
             "status"=> "Send",
             "deadline"=> "Aug 13, 2019",
+            "sort_order"=>11
             ],
             [
             "id"=> 12,
@@ -119,6 +132,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Xavier",
             "status"=> "Pending",
             "deadline"=> "Jul 27, 2018",
+            "sort_order"=>12
             ],
             [
             "id"=> 13,
@@ -128,6 +142,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Colorado",
             "status"=> "Pending",
             "deadline"=> "Oct 25, 2019",
+            "sort_order"=>13
             ],
             [
             "id"=> 14,
@@ -137,6 +152,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Harper",
             "status"=> "Send",
             "deadline"=> "Nov 8, 2019",
+            "sort_order"=>14
             ],
             [
             "id"=> 15,
@@ -146,6 +162,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Slade",
             "status"=> "Pending",
             "deadline"=> "Apr 24, 2019",
+            "sort_order"=>15
             ],
             [
             "id"=> 16,
@@ -155,6 +172,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Barrett",
             "status"=> "Send",
             "deadline"=> "Apr 24, 2018",
+            "sort_order"=>16
             ],
             [
             "id"=> 17,
@@ -163,7 +181,9 @@ class DatatableSeeder extends Seeder
             "client"=> "Madeline",
             "pm"=> "Dorian",
             "status"=> "Send",
-            "deadline"=> "Feb 26, 2019",    ],
+            "sort_order"=>17,
+            "deadline"=> "Feb 26, 2019",    
+            ],
             [
             "id"=> 18,
              "title"=> "tempor arcu. Vestibulum ut eros",
@@ -172,6 +192,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Henry",
             "status"=> "Pending",
             "deadline"=> "Nov 22, 2019",
+            "sort_order"=>18
             ],
             [
             "id"=> 19,
@@ -180,7 +201,9 @@ class DatatableSeeder extends Seeder
             "client"=> "Calvin",
             "pm"=> "Arden",
             "status"=> "Send",
-            "deadline"=> "Nov 16, 2019",    ],
+            "sort_order"=>19,
+            "deadline"=> "Nov 16, 2019",    
+            ],
             [
             "id"=> 20,
              "title"=> "turpis. Nulla aliquet. Proin velit. Sed malesuada augue",
@@ -189,6 +212,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Michael",
             "status"=> "Send",
             "deadline"=> "Nov 26, 2018",
+            "sort_order"=>20
             ],
             [
             "id"=> 21,
@@ -198,6 +222,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Fritz",
             "status"=> "Send",
             "deadline"=> "May 20, 2018",
+            "sort_order"=>21
             ],
             [
             "id"=> 22,
@@ -207,6 +232,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Garrison",
             "status"=> "Send",
             "deadline"=> "Jun 8, 2019",
+            "sort_order"=>22
             ],
             [
             "id"=> 23,
@@ -215,7 +241,9 @@ class DatatableSeeder extends Seeder
             "client"=> "Maryam",
             "pm"=> "Colin",
             "status"=> "Send",
-            "deadline"=> "Sep 8, 2018",     ],
+            "sort_order"=>23,
+            "deadline"=> "Sep 8, 2018",     
+            ],
             [
             "id"=> 24,
              "title"=> "lectus pede",
@@ -224,6 +252,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Cain",
             "status"=> "Pending",
             "deadline"=> "Nov 17, 2019",
+            "sort_order"=>24
             ],
             [
             "id"=> 25,
@@ -232,7 +261,9 @@ class DatatableSeeder extends Seeder
             "client"=> "Jermaine",
             "pm"=> "Amos",
             "status"=> "Send",
-            "deadline"=> "May 22, 2019",    ],
+            "sort_order"=>25,
+            "deadline"=> "May 22, 2019",    
+            ],
             [
             "id"=> 26,
              "title"=> "nec tellus. Nunc lectus pede, ultrices a, auctor non, feugiat",
@@ -241,6 +272,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Marvin",
             "status"=> "Send",
             "deadline"=> "May 21, 2018",
+            "sort_order"=>26
             ],
             [
             "id"=> 27,
@@ -250,6 +282,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Declan",
             "status"=> "Send",
             "deadline"=> "Jun 22, 2018",
+            "sort_order"=>27
             ],
             [
             "id"=> 28,
@@ -259,6 +292,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Brenden",
             "status"=> "Pending",
             "deadline"=> "Nov 8, 2019",
+            "sort_order"=>28
             ],
             [
             "id"=> 29,
@@ -268,6 +302,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Acton",
             "status"=> "Send",
             "deadline"=> "Jan 3, 2019",
+            "sort_order"=>29
             ],
             [
             "id"=> 30,
@@ -277,6 +312,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Vance",
             "status"=> "Send",
             "deadline"=> "Oct 9, 2019",
+            "sort_order"=>30
             ],
             [
             "id"=> 31,
@@ -286,6 +322,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Alexander",
             "status"=> "Send",
             "deadline"=> "Apr 6, 2018",
+            "sort_order"=>31
             ],
             [
             "id"=> 32,
@@ -295,6 +332,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Paul",
             "status"=> "Send",
             "deadline"=> "Sep 21, 2018",
+            "sort_order"=>32
             ],
             [
             "id"=> 33,
@@ -304,6 +342,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Sawyer",
             "status"=> "Send",
             "deadline"=> "Feb 27, 2020",
+            "sort_order"=>33
             ],
             [
             "id"=> 34,
@@ -313,6 +352,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Blake",
             "status"=> "Send",
             "deadline"=> "Dec 29, 2019",
+            "sort_order"=>34
             ],
             [
             "id"=> 35,
@@ -322,6 +362,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Yardley",
             "status"=> "Send",
             "deadline"=> "Jan 6, 2019",
+            "sort_order"=>35
             ],
             [
             "id"=> 36,
@@ -331,6 +372,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Elton",
             "status"=> "Send",
             "deadline"=> "Sep 28, 2018",
+            "sort_order"=>36
             ],
             [
             "id"=> 37,
@@ -340,6 +382,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Noble",
             "status"=> "Send",
             "deadline"=> "Sep 8, 2019",
+            "sort_order"=>37
             ],
             [
             "id"=> 38,
@@ -349,6 +392,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Deacon",
             "status"=> "Send",
             "deadline"=> "Jan 7, 2020",
+            "sort_order"=>38
             ],
             [
             "id"=> 39,
@@ -358,6 +402,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Solomon",
             "status"=> "Pending",
             "deadline"=> "Feb 26, 2019",
+            "sort_order"=>39
             ],
             [
             "id"=> 40,
@@ -367,6 +412,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Eagan",
             "status"=> "Pending",
             "deadline"=> "Mar 11, 2019",
+            "sort_order"=>40
             ],
             [
             "id"=> 41,
@@ -375,7 +421,9 @@ class DatatableSeeder extends Seeder
             "client"=> "Thane",
             "pm"=> "Acton",
             "status"=> "Send",
-            "deadline"=> "Jul 9, 2019",     ],
+            "sort_order"=>41 ,
+            "deadline"=> "Jul 9, 2019",     
+            ],
             [
             "id"=> 42,
              "title"=> "viverra. Maecenas iaculis aliquet diam.",
@@ -384,6 +432,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Jonah",
             "status"=> "Pending",
             "deadline"=> "Jul 29, 2018",
+            "sort_order"=>42
             ],
             [
             "id"=> 43,
@@ -393,6 +442,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Kenneth",
             "status"=> "Pending",
             "deadline"=> "Sep 10, 2019",
+            "sort_order"=>43
             ],
             [
             "id"=> 44,
@@ -401,7 +451,9 @@ class DatatableSeeder extends Seeder
             "client"=> "Geoffrey",
             "pm"=> "Charles",
             "status"=> "Send",
-            "deadline"=> "Mar 2, 2019",     ],
+            "sort_order"=>44,  
+            "deadline"=> "Mar 2, 2019",     
+            ],
             [
             "id"=> 45,
              "title"=> "in,",
@@ -410,6 +462,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Dexter",
             "status"=> "Pending",
             "deadline"=> "Jul 27, 2018",
+            "sort_order"=>45
             ],
             [
             "id"=> 46,
@@ -419,6 +472,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Ali",
             "status"=> "Send",
             "deadline"=> "Sep 18, 2019",
+            "sort_order"=>46
             ],
             [
             "id"=> 47,
@@ -428,6 +482,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Zeus",
             "status"=> "Send",
             "deadline"=> "Apr 12, 2019",
+            "sort_order"=>47
             ],
             [
             "id"=> 48,
@@ -436,7 +491,9 @@ class DatatableSeeder extends Seeder
             "client"=> "Farrah",
             "pm"=> "Derek",
             "status"=> "Pending",
-            "deadline"=> "Aug 1, 2019",     ],
+            "sort_order"=>48,   
+            "deadline"=> "Aug 1, 2019",     
+            ],
             [
             "id"=> 49,
              "title"=> "et magnis dis parturient montes, nascetur ridiculus mus. Donec dignissim",
@@ -444,7 +501,9 @@ class DatatableSeeder extends Seeder
             "client"=> "Ori",
             "pm"=> "Joshua",
             "status"=> "Send",
-            "deadline"=> "Aug 4, 2019",     ],
+            "sort_order"=>49,
+            "deadline"=> "Aug 4, 2019",     
+            ],
             [
             "id"=> 50,
              "title"=> "lacus. Nulla tincidunt, neque vitae semper egestas,",
@@ -453,6 +512,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Thaddeus",
             "status"=> "Pending",
             "deadline"=> "Sep 27, 2019",
+            "sort_order"=>50
             ],
             [
             "id"=> 51,
@@ -461,7 +521,9 @@ class DatatableSeeder extends Seeder
             "client"=> "Declan",
             "pm"=> "Rajah",
             "status"=> "Send",
-            "deadline"=> "Sep 1, 2018",     ],
+            "sort_order"=>51,
+            "deadline"=> "Sep 1, 2018",     
+            ],
             [
             "id"=> 52,
              "title"=> "enim, sit amet ornare",
@@ -470,6 +532,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Demetrius",
             "status"=> "Pending",
             "deadline"=> "Mar 6, 2019",
+            "sort_order"=>52
             ],
             [
             "id"=> 53,
@@ -479,6 +542,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "August",
             "status"=> "Send",
             "deadline"=> "Oct 25, 2018",
+            "sort_order"=>53
             ],
             [
             "id"=> 54,
@@ -488,6 +552,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Preston",
             "status"=> "Send",
             "deadline"=> "Feb 28, 2019",
+            "sort_order"=>54
             ],
             [
             "id"=> 55,
@@ -497,6 +562,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Lucian",
             "status"=> "Send",
             "deadline"=> "Apr 14, 2018",
+            "sort_order"=>55
             ],
             [
             "id"=> 56,
@@ -506,6 +572,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Gabriel",
             "status"=> "Send",
             "deadline"=> "May 19, 2018",
+            "sort_order"=>56
             ],
             [
             "id"=> 57,
@@ -514,7 +581,9 @@ class DatatableSeeder extends Seeder
             "client"=> "Omar",
             "pm"=> "Quentin",
             "status"=> "Send",
-            "deadline"=> "Jun 18, 2018",    ],
+            "sort_order"=>57,
+            "deadline"=> "Jun 18, 2018",    
+            ],
             [
             "id"=> 58,
              "title"=> "lacus, varius",
@@ -523,6 +592,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Price",
             "status"=> "Send",
             "deadline"=> "Feb 19, 2020",
+            "sort_order"=>58
             ],
             [
             "id"=> 59,
@@ -532,6 +602,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Nasim",
             "status"=> "Send",
             "deadline"=> "Dec 14, 2018",
+            "sort_order"=>59
             ],
             [
             "id"=> 60,
@@ -541,6 +612,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Chase",
             "status"=> "Send",
             "deadline"=> "Jun 12, 2019",
+            "sort_order"=>60
             ],
             [
             "id"=> 61,
@@ -550,6 +622,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Gareth",
             "status"=> "Send",
             "deadline"=> "Dec 27, 2018",
+            "sort_order"=>61
             ],
             [
             "id"=> 62,
@@ -558,7 +631,9 @@ class DatatableSeeder extends Seeder
             "client"=> "Fay",
             "pm"=> "Justin",
             "status"=> "Send",
-            "deadline"=> "Feb 14, 2019",    ],
+            "sort_order"=>62,
+            "deadline"=> "Feb 14, 2019",    
+            ],
             [
             "id"=> 63,
              "title"=> "Mauris blandit",
@@ -567,6 +642,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Isaiah",
             "status"=> "Send",
             "deadline"=> "Feb 24, 2020",
+            "sort_order"=>63
             ],
             [
             "id"=> 64,
@@ -575,7 +651,9 @@ class DatatableSeeder extends Seeder
             "client"=> "Shafira",
             "pm"=> "Phillip",
             "status"=> "Send",
-            "deadline"=> "Mar 18, 2019",    ],
+            "sort_order"=>64,
+            "deadline"=> "Mar 18, 2019",    
+            ],
             [
             "id"=> 65,
              "title"=> "amet, consectetuer",
@@ -584,6 +662,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Basil",
             "status"=> "Pending",
             "deadline"=> "Jun 19, 2019",
+            "sort_order"=>65
             ],
             [
             "id"=> 66,
@@ -593,6 +672,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Dane",
             "status"=> "Pending",
             "deadline"=> "May 3, 2019",
+            "sort_order"=>66
             ],
             [
             "id"=> 67,
@@ -601,7 +681,9 @@ class DatatableSeeder extends Seeder
             "client"=> "Cyrus",
             "pm"=> "Ronan",
             "status"=> "Pending",
-            "deadline"=> "Jul 12, 2019",    ],
+            "sort_order"=>67,
+            "deadline"=> "Jul 12, 2019",    
+            ],
             [
             "id"=> 68,
              "title"=> "convallis",
@@ -610,6 +692,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Xanthus",
             "status"=> "Pending",
             "deadline"=> "Nov 1, 2018",
+            "sort_order"=>68
             ],
             [
             "id"=> 69,
@@ -618,7 +701,9 @@ class DatatableSeeder extends Seeder
             "client"=> "Alexis",
             "pm"=> "Kelly",
             "status"=> "Send",
-            "deadline"=> "Oct 21, 2018",    ],
+            "sort_order"=>69,
+            "deadline"=> "Oct 21, 2018",    
+            ],
             [
             "id"=> 70,
              "title"=> "ullamcorper magna. Sed eu eros.",
@@ -627,6 +712,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Yoshio",
             "status"=> "Pending",
             "deadline"=> "Nov 12, 2019",
+            "sort_order"=>70
             ],
             [
             "id"=> 71,
@@ -635,7 +721,9 @@ class DatatableSeeder extends Seeder
             "client"=> "Blake",
             "pm"=> "Reuben",
             "status"=> "Send",
-            "deadline"=> "Jun 27, 2018",    ],
+            "sort_order"=>71,
+            "deadline"=> "Jun 27, 2018",    
+            ],
             [
             "id"=> 72,
              "title"=> "magna. Sed eu eros. Nam consequat",
@@ -644,6 +732,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Grant",
             "status"=> "Send",
             "deadline"=> "Feb 6, 2020",
+            "sort_order"=>72
             ],
             [
             "id"=> 73,
@@ -653,6 +742,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Drew",
             "status"=> "Send",
             "deadline"=> "May 10, 2019",
+            "sort_order"=>73
             ],
             [
             "id"=> 74,
@@ -662,6 +752,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Elton",
             "status"=> "Send",
             "deadline"=> "Mar 6, 2018",
+            "sort_order"=>74
             ],
             [
             "id"=> 75,
@@ -671,6 +762,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Seth",
             "status"=> "Send",
             "deadline"=> "Mar 29, 2018",
+            "sort_order"=>75
             ],
             [
             "id"=> 76,
@@ -680,6 +772,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Stephen",
             "status"=> "Send",
             "deadline"=> "Jan 10, 2020",
+            "sort_order"=>76
             ],
             [
             "id"=> 77,
@@ -689,6 +782,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Hop",
             "status"=> "Send",
             "deadline"=> "Feb 18, 2020",
+            "sort_order"=>77
             ],
             [
             "id"=> 78,
@@ -698,6 +792,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Cole",
             "status"=> "Send",
             "deadline"=> "Oct 27, 2019",
+            "sort_order"=>78
             ],
             [
             "id"=> 79,
@@ -707,6 +802,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "William",
             "status"=> "Send",
             "deadline"=> "Mar 7, 2019",
+            "sort_order"=>79
             ],
             [
             "id"=> 80,
@@ -716,6 +812,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Kato",
             "status"=> "Send",
             "deadline"=> "Jan 22, 2019",
+            "sort_order"=>80
             ],
             [
             "id"=> 81,
@@ -724,7 +821,9 @@ class DatatableSeeder extends Seeder
             "client"=> "Jacob",
             "pm"=> "Declan",
             "status"=> "Send",
-            "deadline"=> "May 4, 2019",     ],
+            "sort_order"=>81,
+            "deadline"=> "May 4, 2019",     
+            ],
             [
             "id"=> 82,
              "title"=> "tincidunt",
@@ -732,7 +831,9 @@ class DatatableSeeder extends Seeder
             "client"=> "Brendan",
             "pm"=> "Hayden",
             "status"=> "Pending",
-            "deadline"=> "Jun 20, 2019",    ],
+            "sort_order"=>82,
+            "deadline"=> "Jun 20, 2019",    
+            ],
             [
             "id"=> 83,
              "title"=> "at, nisi. Cum sociis natoque",
@@ -741,6 +842,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Quamar",
             "status"=> "Pending",
             "deadline"=> "Jan 26, 2019",
+            "sort_order"=>83
             ],
             [
             "id"=> 84,
@@ -750,6 +852,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Brady",
             "status"=> "Send",
             "deadline"=> "Apr 24, 2018",
+            "sort_order"=>84
             ],
             [
             "id"=> 85,
@@ -759,6 +862,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Chester",
             "status"=> "Send",
             "deadline"=> "Nov 27, 2019",
+            "sort_order"=>85
             ],
             [
             "id"=> 86,
@@ -768,6 +872,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Acton",
             "status"=> "Pending",
             "deadline"=> "Mar 7, 2019",
+            "sort_order"=>86
             ],
             [
             "id"=> 87,
@@ -777,6 +882,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Donovan",
             "status"=> "Send",
             "deadline"=> "Dec 19, 2019",
+            "sort_order"=>87
             ],
             [
             "id"=> 88,
@@ -786,6 +892,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Tarik",
             "status"=> "Pending",
             "deadline"=> "Aug 17, 2018",
+            "sort_order"=>88
             ],
             [
             "id"=> 89,
@@ -795,6 +902,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Herman",
             "status"=> "Send",
             "deadline"=> "Dec 15, 2018",
+            "sort_order"=>89
             ],
             [
             "id"=> 90,
@@ -804,6 +912,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Declan",
             "status"=> "Pending",
             "deadline"=> "Dec 28, 2018",
+            "sort_order"=>90
             ],
             [
             "id"=> 91,
@@ -812,7 +921,9 @@ class DatatableSeeder extends Seeder
             "client"=> "Halla",
             "pm"=> "Tanek",
             "status"=> "Pending",
-            "deadline"=> "Dec 14, 2018",    ],
+            "sort_order"=>91,
+            "deadline"=> "Dec 14, 2018",    
+            ],
             [
             "id"=> 92,
              "title"=> "ut lacus. Nulla tincidunt, neque vitae",
@@ -820,7 +931,9 @@ class DatatableSeeder extends Seeder
             "client"=> "Kylie",
             "pm"=> "Hayden",
             "status"=> "Send",
-            "deadline"=> "Sep 5, 2018",     ],
+            "sort_order"=>92,
+            "deadline"=> "Sep 5, 2018",     
+            ],
             [
             "id"=> 93,
              "title"=> "sit",
@@ -828,7 +941,9 @@ class DatatableSeeder extends Seeder
             "client"=> "Zenia",
             "pm"=> "Benjamin",
             "status"=> "Pending",
-            "deadline"=> "Oct 12, 2019",    ],
+            "sort_order"=>93,
+            "deadline"=> "Oct 12, 2019",    
+            ],
             [
             "id"=> 94,
              "title"=> "est tempor bibendum.",
@@ -837,6 +952,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Howard",
             "status"=> "Send",
             "deadline"=> "Mar 9, 2019",
+            "sort_order"=>94
             ],
             [
             "id"=> 95,
@@ -846,6 +962,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Peter",
             "status"=> "Send",
             "deadline"=> "Dec 21, 2019",
+            "sort_order"=>95
             ],
             [
             "id"=> 96,
@@ -855,6 +972,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Wing",
             "status"=> "Send",
             "deadline"=> "Oct 8, 2018",
+            "sort_order"=>96
             ],
             [
             "id"=> 97,
@@ -864,6 +982,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Arsenio",
             "status"=> "Pending",
             "deadline"=> "Sep 11, 2018",
+            "sort_order"=>97
             ],
             [
             "id"=> 98,
@@ -873,6 +992,7 @@ class DatatableSeeder extends Seeder
             "pm"=> "Bruce",
             "status"=> "Send",
             "deadline"=> "Jul 14, 2019",
+            "sort_order"=>98
             ],
             [
             "id"=> 99,
@@ -882,15 +1002,17 @@ class DatatableSeeder extends Seeder
             "pm"=> "Xanthus",
             "status"=> "Pending",
             "deadline"=> "Jun 1, 2019",     
+            "sort_order"=>99
             ],
             [
             "id"=> 100,
-              "title"=> "scelerisque neque",
+            "title"=> "scelerisque neque",
             "team"=> "Jarrod A. Hood",
             "client"=> "Benjamin",
             "pm"=> "Garrison",
             "status"=> "Pending",
             "deadline"=> "Jan 7, 2020",
+            "sort_order"=>100
             ]
         ]);
 
