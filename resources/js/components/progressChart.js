@@ -1,10 +1,8 @@
-import React from "react";
+import React, { Component } from "react";
 import Highcharts from "highcharts";
 import ReactHighcharts from "react-highcharts";
 import HighchartsMore from "highcharts/highcharts-more";
 import SolidGauge from "highcharts/modules/solid-gauge";
-HighchartsMore(ReactHighcharts.Highcharts);
-SolidGauge(ReactHighcharts.Highcharts);
 
 if (!Highcharts.theme) {
     Highcharts.setOptions({
@@ -102,7 +100,7 @@ function renderIcons() {
                 stroke: "#303030",
                 "stroke-linecap": "round",
                 "stroke-linejoin": "round",
-                "stroke-width": 2,
+                "stroke-width": 1,
                 zIndex: 10
             })
             .add(this.series[2].group);
@@ -235,6 +233,9 @@ const options = {
             rounded: true
         }
     },
+    shapes: [{
+        strokeWidth: 1
+    }],
 
     series: [
         {
@@ -276,13 +277,22 @@ const options = {
     ]
 };
 
-const ProgressChart = () => {
-    return (
-        <div>
-            <h1 className="title">Gauge Activity</h1>
-            <ReactHighcharts config={options} />
-        </div>
-    );
-};
+class ProgressChart extends Component {
+    constructor() {
+        super();
+
+        HighchartsMore(ReactHighcharts.Highcharts);
+        SolidGauge(ReactHighcharts.Highcharts);
+    }
+
+    render() {
+        return (
+            <div>
+                <h1 className="title">Gauge Activity</h1>
+                <ReactHighcharts config={options} />
+            </div>
+        );
+    }
+}
 
 export default ProgressChart;
