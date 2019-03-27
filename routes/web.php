@@ -71,6 +71,46 @@ Route::get('ck-editor', function () {
     return view('ck-editor.document-editor');
 });
 
+
+// React Routes starts here
+Route::group([
+	'prefix' => 'react'
+], function () {
+	Route::group([
+		'prefix' => 'webix'
+	], function () {
+		
+		Route::get('datatable', function () {
+		    return view('webix.datatable-react');
+		});
+
+		Route::get('get/datatable', 'HomeController@datatable');
+		Route::post('datatable/action', 'HomeController@datatable_action');
+
+		Route::get('gantt', function () {
+		    return view('webix.gantt-react');
+		});
+
+		Route::get('get/gantt', 'HomeController@gantt');
+
+		Route::resource('gantt/task', 'TaskController');
+		Route::resource('gantt/link', 'LinkController');
+
+		Route::get('schedular', function () {
+		    return view('webix.schedular-react');
+		});
+	});
+
+	Route::get('gauge', function () {
+	    return view('highcharts.gauge-react');
+	});
+
+	Route::get('ck-editor', function () {
+	    return view('ck-editor.document-editor-react');
+	});
+});
+// React routes ends here
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

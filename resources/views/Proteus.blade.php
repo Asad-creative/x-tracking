@@ -28,16 +28,64 @@
             @endif
 
             <div class="content container">
-                <div class="title m-b-md">Proteus</div>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Module</th>
+                      <th scope="col">Java Script</th>
+                      <th scope="col">React JS</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Webix Datatable</td>
+                      <td><a href="{{ url('/webix/datatable') }}">Click Here</a></td>
+                      <td><a href="{{ url('/react/webix/datatable') }}">Click Here</a></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Webix Gantt</td>
+                      <td><a href="{{ url('/webix/gantt') }}">Click Here</a></td>
+                      <td><a href="{{ url('/react/webix/gantt') }}">Click Here</a></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>CK Editor</td>
+                      <td><a href="{{ url('/ck-editor') }}">Click Here</a></td>
+                      <td><a href="{{ url('/react/ck-editor') }}">Click Here</a></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">4</th>
+                      <td>Webix Schedular</td>
+                      <td><a href="{{ url('/webix/schedular') }}">Click Here</a></td>
+                      <td><a href="{{ url('/react/webix/schedular') }}">Click Here</a></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">5</th>
+                      <td>Highchart Progress Bar</td>
+                      <td><a href="{{ url('/gauge') }}">Click Here</a></td>
+                      <td><a href="{{ url('/react/gauge') }}">Click Here</a></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">6</th>
+                      <td>Webix Organogram</td>
+                      <td>-</td>
+                      <td>-</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- <div class="title m-b-md">Proteus</div>
 
                 <div class="links">
-                    <!-- <a href="https://laravel.com/docs">Docs</a>
+                    <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://blog.laravel.com">Blog</a>
                     <a href="https://nova.laravel.com">Nova</a>
                     <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a> -->
+                    <a href="https://github.com/laravel/laravel">GitHub</a>
 
                     <a href="{{ url('/webix/datatable') }}">Webix Datatable</a>
                     <a href="">Webix Tree</a>
@@ -45,7 +93,7 @@
                     <a href="{{ url('/webix/gantt') }}">Webix Gantt</a>
                     <a href="{{ url('/webix/datatable-react') }}">Webix Datatable React</a>
 
-                </div>
+                </div> -->
             </div>
         </div>
     </body>
