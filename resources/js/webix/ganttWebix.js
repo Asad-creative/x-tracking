@@ -15,7 +15,6 @@ class GanttWebix extends Component {
                     id="gantt_chart"
                     ref="gantt"
                     style={{
-                        width: 1300,
                         height: 400,
                         marginTop: 0
                         // marginRight: "auto"

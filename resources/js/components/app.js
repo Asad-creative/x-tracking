@@ -4,6 +4,7 @@ import SchedulerCalendar from "./ganttChart";
 import Example from "./dataTable";
 import ProgressChart from "./progressChart";
 import Calendar from "./calendar";
+import Scheduler from "./scheduler";
 import Editor from "./ckEditor";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
@@ -36,8 +37,13 @@ class App extends Component {
                             />
                             <Route
                                 exact
-                                path={`/react/webix/schedular`}
+                                path={`/react/webix/calender`}
                                 component={Calendar}
+                            />
+                            <Route
+                                exact
+                                path={`/react/webix/schedular`}
+                                component={Scheduler}
                             />
                         </Switch>
                     </div>
