@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Webix from "./Webix";
+import Webix from "../webix/datatableWebix";
 // import { $$ } from "webix";
 import "webix/webix.js";
 import "webix/webix.css";
