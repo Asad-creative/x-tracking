@@ -1,8 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>CKEditor 5 – Document editor</title>
+@extends('layouts.app')
+
+@section('content')
     <script src="https://cdn.ckeditor.com/ckeditor5/12.0.0/decoupled-document/ckeditor.js"></script>
     <style>
         .document-editor {
@@ -139,9 +137,6 @@
             margin-right: calc( 2 * var(--ck-spacing-large) );
         }
     </style>
-</head>
-<body>
-    <h1>Document editor</h1>
 
     <div class="document-editor">
         <div class="document-editor__toolbar"></div>
@@ -170,5 +165,4 @@
                 console.error( err );
             } );
     </script>
-</body>
-</html>
+@endsection

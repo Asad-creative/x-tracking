@@ -64,12 +64,18 @@
                     </tr>
                     <tr>
                       <th scope="row">5</th>
+                      <td>Webix Calender</td>
+                      <td><a href="{{ url('/webix/calender') }}">Click Here</a></td>
+                      <td><a href="{{ url('/react/webix/calender') }}">Click Here</a></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">6</th>
                       <td>Highchart Progress Bar</td>
                       <td><a href="{{ url('/gauge') }}">Click Here</a></td>
                       <td><a href="{{ url('/react/gauge') }}">Click Here</a></td>
                     </tr>
                     <tr>
-                      <th scope="row">6</th>
+                      <th scope="row">7</th>
                       <td>Webix Organogram</td>
                       <td>-</td>
                       <td>-</td>

@@ -28,10 +28,6 @@ Route::group([
 	    return view('webix.datatable-react');
 	});
 
-
-
-	
-
 	Route::get('dynamic/datatable', function () {
 	    return view('webix.dynamic-datatable');
 	});
@@ -58,6 +54,10 @@ Route::group([
 
 	Route::get('schedular', function () {
 	    return view('webix.schedular');
+	});
+
+	Route::get('calender', function () {
+	    return view('webix.calender');
 	});
 });
 
@@ -98,6 +98,10 @@ Route::group([
 
 		Route::get('schedular', function () {
 		    return view('webix.schedular-react');
+		});
+
+		Route::get('calender', function () {
+		    return view('webix.calender');
 		});
 	});
 
