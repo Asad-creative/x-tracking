@@ -11,7 +11,7 @@
 
     	<div style="margin-left: 11%;">
     		<a class="btn btn-danger" href="{{ url('webix/schedular') }}">Client Side Schedular</a>
-    		<a class="btn btn-danger" href="{{ url('webix/dynamic/schedular') }}">Dynamic Schedular</a>
+    		<a class="btn btn-danger" href="{{ url('webix/schedular') }}">Dynamic Schedular</a>
     	</div>
     	<br>
 		<!-- <div id="box" style="height:470px;margin: 0 auto;"></div> -->
@@ -33,10 +33,20 @@
 		      init:function(){
 		        this.getScheduler().config.xml_date="%Y-%m-%d %H:%i";
 		        this.getScheduler().config.first_hour = 6;
-		        this.getScheduler().config.multi_day = false;
+		        this.getScheduler().config.multi_day = true;
 		      },
 		      ready:function(){
-		        this.getScheduler().parse(scheduler_data, "json");
+		      	var scheduler = this.getScheduler();
+		      	
+		      	scheduler.load("{{ url('webix/get/schedular') }}","json");
+		      	var dp = new dataProcessor("{{ url('webix/schedular/events') }}"); 
+				dp.init(scheduler);
+				dp.setTransactionMode("REST");
+
+		        // this.getScheduler().parse( "{{ url('webix/get/schedular') }}" , "json");
+		        //this.init("scheduler", new Date(), "week");
+
+				// $$("scheduler").load("{{ url('webix/get/schedular') }}");
 		      } 
 		    }
 		  ]

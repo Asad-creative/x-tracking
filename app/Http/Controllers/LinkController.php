@@ -6,9 +6,9 @@ use App\Link;
 
 class LinkController extends Controller
 {
-    public function store(Request $request)
+    public static function store(Request $request)
     {
-        if (1==1) {
+        if (1==1 ) {
         }
         $link = new Link();
 

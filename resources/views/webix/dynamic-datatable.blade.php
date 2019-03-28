@@ -33,6 +33,8 @@
 		    select:"row",
 		    editable:true,
 		    drag:true,
+		    resizeColumn:true,
+    		resizeRow:true,
 		    editaction:"dblclick",
 		    pager:{
 		        template:"{common.first()} {common.prev()} {common.pages()} {common.next()} {common.last()}",

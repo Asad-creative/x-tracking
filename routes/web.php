@@ -56,6 +56,13 @@ Route::group([
 	    return view('webix.schedular');
 	});
 
+	Route::get('dynamic/schedular', function () {
+	    return view('webix.dynamic-schedular');
+	});
+
+	Route::get('get/schedular', 'EventController@index');
+	Route::resource('schedular/events', 'EventController');
+
 	Route::get('calender', function () {
 	    return view('webix.calender');
 	});
