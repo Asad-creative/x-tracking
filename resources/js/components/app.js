@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import SchedulerCalendar from "./scehdulerCalendar";
+import SchedulerCalendar from "./ganttChart";
 import Example from "./dataTable";
 import ProgressChart from "./progressChart";
+import Calendar from "./calendar";
+import Scheduler from "./scheduler";
 import Editor from "./ckEditor";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
@@ -32,6 +34,16 @@ class App extends Component {
                                 exact
                                 path={`/react/ck-editor`}
                                 component={Editor}
+                            />
+                            <Route
+                                exact
+                                path={`/react/webix/calender`}
+                                component={Calendar}
+                            />
+                            <Route
+                                exact
+                                path={`/react/webix/schedular`}
+                                component={Scheduler}
                             />
                         </Switch>
                     </div>

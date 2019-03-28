@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Webix from "./Webix";
+import Webix from "../webix/datatableWebix";
 // import { $$ } from "webix";
 import "webix/webix.js";
 import "webix/webix.css";
@@ -162,6 +162,38 @@ function getUI() {
                     },
                     onAfterEditStop: function() {
                         update_item();
+                    },
+                    onAfterDrop: function(context, native_event) {
+                        var parents = {};
+                        var childs = {};
+                        var i = 0;
+                        $$("datatable_1").eachRow(function(row) {
+                            var record = $$("datatable_1").getItem(row);
+                            if (record) {
+                                if (record.$parent == 0) {
+                                    parents[i] = record.id;
+                                } else {
+                                    childs[i] = {
+                                        parent: record.$parent,
+                                        child_id: record.id
+                                    };
+                                }
+                            }
+                            i++;
+                        });
+
+                        var update_sort = {
+                            webix_operation: "update_sort",
+                            row_id: context.start,
+                            parent_id: context.parent,
+                            sort_order: Number(context.index) + 1
+                        };
+                        webix
+                            .ajax()
+                            .post(
+                                'datatable/action',
+                                update_sort
+                            );
                     }
                 },
                 select: "row"

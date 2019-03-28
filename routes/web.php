@@ -108,7 +108,7 @@ Route::group([
 		});
 
 		Route::get('calender', function () {
-		    return view('webix.calender');
+		    return view('webix.calender-react');
 		});
 	});
 

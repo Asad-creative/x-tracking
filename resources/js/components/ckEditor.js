@@ -7,7 +7,7 @@ import "./style.css";
 class Editor extends Component {
     render() {
         return (
-            <div style={{ marginBottom: 50 }}>
+            <div>
                 <h1 className="title">Using CKEditor 5 build in React</h1>
                 <CKEditor
                     editor={DecoupledEditor}
