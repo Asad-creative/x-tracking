@@ -4,25 +4,18 @@
 	<link rel="stylesheet" href="{{ asset('css/proteus.css') }}" type="text/css">
     <script src="{{ asset('js/webix.js') }}" type="text/javascript"></script>
 
-    	<!-- <div style="margin-left: 11%;">
+    	<div style="margin-left: 11%;">
     		<a class="btn btn-danger" href="{{ url('webix/datatable') }}">Client Side Data</a>
     		<a class="btn btn-danger" href="{{ url('webix/dynamic/datatable') }}">Dynamic Data</a>
-		</div> -->
-		
-		<div class="container">
-			<h1 class="title">Webix Datatable</h1>
-			<div id="box"></div>
-			<div id="paging_wrapper"></div>
 		</div>
+		
+		<br>
+		
+		<div id="box" style="width:1300px;height:470px;margin: 0 auto;"></div>
+		<div id="paging_wrapper" style="margin-left: 10%;"></div>
+    
     <script type="text/javascript" charset="utf-8">
     	
-    	/*webix.locale.pager = {
-		    first: "First", // the first button
-		    last:  "Last", // the last button
-		    next:  "Next", // the next button
-		    prev:  "Prev"  // the previous button
-		};*/
-
     	webix.ui({
 			container:"box",
 			scroll:false,

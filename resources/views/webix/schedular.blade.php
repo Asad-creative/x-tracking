@@ -10,8 +10,8 @@
 	<script src="https://cdn.webix.com/components/edge/scheduler/scheduler.js"></script>
 
     	<div style="margin-left: 11%;">
-    		<a class="btn btn-danger" href="{{ url('webix/gantt') }}">Client Side Schedular</a>
-    		<a class="btn btn-danger" href="{{ url('webix/dynamic/gantt') }}">Dynamic Schedular</a>
+    		<a class="btn btn-danger" href="{{ url('webix/schedular') }}">Client Side Schedular</a>
+    		<a class="btn btn-danger" href="{{ url('webix/schedular') }}">Dynamic Schedular</a>
     	</div>
     	<br>
 		<!-- <div id="box" style="height:470px;margin: 0 auto;"></div> -->
