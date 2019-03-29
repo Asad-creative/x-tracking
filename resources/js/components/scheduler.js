@@ -40,10 +40,15 @@ function getUI() {
                     this.getScheduler().config.first_hour = 6;
                     this.getScheduler().config.multi_day = false;
                 },
-                ready: function(scheduler) {
-                     //  this.getScheduler.load(scheduler_data)
-                      console.log( "scheduler", this.getScheduler()  )
-                    this.getScheduler().parse(scheduler_data, "json");
+                ready: function() {
+                    var scheduler = this.getScheduler();
+
+                    scheduler.load("get/schedular", "json");
+                    var dp = new dataProcessor(
+                        "schedular/events"
+                    );
+                    dp.init(scheduler);
+                    dp.setTransactionMode("REST");
                 }
             }
         ]
