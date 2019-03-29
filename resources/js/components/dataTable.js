@@ -32,8 +32,6 @@ function multipleDelete() {
 function getUI() {
     return {
         container: "box",
-        resizeColumn: true,
-        resizeRow: true,
         rows: [
             {
                 view: "toolbar",
@@ -52,6 +50,8 @@ function getUI() {
                 view: "treetable",
                 navigation: true,
                 id: "datatable_1",
+                resizeColumn: true,
+                resizeRow: true,
                 editable: true,
                 drag: true,
                 // tooltip: true,
