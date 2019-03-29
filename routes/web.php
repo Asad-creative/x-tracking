@@ -107,6 +107,9 @@ Route::group([
 		    return view('webix.schedular-react');
 		});
 
+		Route::get('get/schedular', 'EventController@index');
+		Route::resource('schedular/events', 'EventController');
+
 		Route::get('calender', function () {
 		    return view('webix.calender-react');
 		});

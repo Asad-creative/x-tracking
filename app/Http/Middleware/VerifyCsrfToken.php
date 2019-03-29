@@ -19,6 +19,6 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        'webix/gantt/*','webix/datatable/*','webix/schedular/*',
+        '/*',
     ];
 }
