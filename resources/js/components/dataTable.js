@@ -32,6 +32,8 @@ function multipleDelete() {
 function getUI() {
     return {
         container: "box",
+        resizeColumn: true,
+        resizeRow: true,
         rows: [
             {
                 view: "toolbar",
@@ -188,12 +190,7 @@ function getUI() {
                             parent_id: context.parent,
                             sort_order: Number(context.index) + 1
                         };
-                        webix
-                            .ajax()
-                            .post(
-                                'datatable/action',
-                                update_sort
-                            );
+                        webix.ajax().post("datatable/action", update_sort);
                     }
                 },
                 select: "row"
