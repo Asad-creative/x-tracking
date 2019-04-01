@@ -9,18 +9,22 @@ class Editor extends Component {
         return (
             <div>
                 <h1 className="title">Using CKEditor 5 build in React</h1>
+                <div className="document-editor">
+                    <div className="document-editor__toolbar" />
+                    <div className="document-editor__editable-container">
+                        <div className="document-editor__editable" />
+                    </div>
+                </div>
                 <CKEditor
                     editor={DecoupledEditor}
                     data={localStorage.getItem("template")}
                     onInit={editor => {
-                        editor.ui
-                            .getEditableElement()
-                            .parentElement.insertBefore(
-                                editor.ui.view.toolbar.element,
-                                editor.ui.getEditableElement()
-                            );
-                        // You can store the "editor" and use when it is needed.
-                        console.log("Editor is ready to use!", editor);
+                        document
+                            .querySelector(".document-editor__editable")
+                            .appendChild(editor.ui.view.editable.element);
+                        document
+                            .querySelector(".document-editor__toolbar")
+                            .appendChild(editor.ui.view.toolbar.element);
                     }}
                     onChange={(event, editor) => {
                         const data = editor.getData();

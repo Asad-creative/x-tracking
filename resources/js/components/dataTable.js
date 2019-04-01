@@ -51,7 +51,7 @@ function getUI() {
                 navigation: true,
                 id: "datatable_1",
                 resizeColumn: true,
-                resizeRow: true,
+                // resizeRow: true,
                 editable: true,
                 drag: true,
                 // tooltip: true,
