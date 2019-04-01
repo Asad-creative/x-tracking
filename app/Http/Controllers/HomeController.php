@@ -69,6 +69,7 @@ class HomeController extends Controller
         foreach ($dt as $key=>$row) {
             $data[$key] = [
                 "id"            => $row->id,
+                "sort_order"    => $row->sort_order,
                 "ref"           => $row->id,
                 "title"         => $row->title,
                 "team"          => $row->team,
@@ -86,6 +87,7 @@ class HomeController extends Controller
             foreach($childs as $child_key => $child){
                 $data[$key]["data"][$child_key] =  [
                     "id"            => $child->id,
+                    "sort_order"    => $child->sort_order,
                     "ref"           => $child->id,
                     "title"         => $child->title,
                     "team"          => $child->team,
@@ -160,7 +162,7 @@ class HomeController extends Controller
 
         if($input['webix_operation'] == 'update_sort'){
 
-            $changed_row = Datatable::find($request->row_id);
+            /*$changed_row = Datatable::find($request->row_id);
             $old_row = Datatable::where('parent_id',$request->parent_id)
                         ->where('sort_order', $request->sort_order)
                         ->update(['sort_order'=> $changed_row->sort_order]);
@@ -168,10 +170,37 @@ class HomeController extends Controller
             $changed_row->parent_id = $request->parent_id;
             $changed_row->sort_order  = $request->sort_order;
      
-            $changed_row->save();
+            $changed_row->save();*/
 
+            foreach(json_decode($request->parents) as $sort_order => $parent_id){
+                
+                $changed_row = Datatable::find($parent_id);
+                $changed_row->parent_id   = 0;
+                $changed_row->sort_order  = $sort_order;
+                $changed_row->save();
+
+            }
+
+            $childs_array = [];
+            foreach(json_decode($request->childs) as $child){
+                
+                $childs_array[$child->parent][] = $child->child_id; 
+                
+            }
+
+            if(count($childs_array) > 0){
+                foreach($childs_array as $parent_id => $childs){
+                    foreach($childs as $child_key => $child_id){
+                        $changed_row = Datatable::find($child_id);
+                        $changed_row->parent_id   = $parent_id;
+                        $changed_row->sort_order  = $child_key+1;
+                        $changed_row->save();
+                    }
+                }
+            }
+            
             return response()->json([
-                "action"=> "updated"
+                "action" => "updated"
             ]);
         }
 

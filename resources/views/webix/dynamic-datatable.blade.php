@@ -125,32 +125,42 @@
 			    	update_item();
 			    },
 			    onAfterDrop:function(context, native_event){
-			    	console.log(context,"context");
+			    	//console.log(context,"context");
 			    	var parents = {};
-			    	var childs = {};
-			    	var i = 0;
-			    	$$("datatable_1").eachRow(function(row){ 
+			    	var childs  = {};
+			    	var current_page = this.getPage();
+			    	var parent_sort_order = current_page*10;
+			    	var min_sort_order = parent_sort_order+1;
+			    	var max_sort_order = parent_sort_order+10;
+			    	var child_index = 0;
+			    	$$("datatable_1").eachRow(function(row) { 
 			    		var record = $$("datatable_1").getItem(row);
 					    if(record){
 						    if(record.$parent == 0){
-						    	parents[i] = record.id;
+						    	if(record.sort_order >= min_sort_order && record.sort_order <= max_sort_order){
+						    		parent_sort_order++;
+						    		parents[parent_sort_order] = record.id;
+						    	}
 						    }else{
-						    	childs[i] = { 
+						    	childs[child_index] = { 
 						    		"parent" : record.$parent, 
 						    		"child_id" : record.id
 						    	};
+						    	child_index++;
 						    }
 						}
 					    console.log(record,"record");
-					    i++;
 					});
+
 			    	console.log(parents,"parents");
 			    	console.log(childs,"childs");
 			    	var update_sort = {
 			    		webix_operation: 'update_sort',
 			    		row_id		: context.start,
 			    		parent_id	: context.parent,
-			    		sort_order	: Number(context.index)+1
+			    		sort_order	: Number(context.index)+1,
+			    		parents		: parents,
+			    		childs		: childs
 			    	};
 			    	webix.ajax().post("{{ url('webix/datatable/action') }}",update_sort);
 

@@ -8,7 +8,7 @@ class LinkController extends Controller
 {
     public static function store(Request $request)
     {
-        if (1==1 ) {
+        if (1==1) {
         }
         $link = new Link();
 
