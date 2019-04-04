@@ -77,13 +77,8 @@
 
                         {{-- @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
-<<<<<<< HEAD
-                        @endif
-                    @endauth -->
-=======
                         @endif --}}
                     @endauth
->>>>>>> bf8e9828d4e5b1fbd7c8753405b3bf76ec45ac5b
                 </div>
             @endif
 

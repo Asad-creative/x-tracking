@@ -1,0 +1,284 @@
+
+  //WEBIX TABLE / DRAG AND DROP
+  .webix_dtable{
+    .webix_vscroll_x{
+        overflow: hidden;
+        display: none;
+    }
+
+    .webix_drag_over{
+      background-color: $primery03 !important;
+      color: $primary-font-colour;
+      border-color:$primery05;
+      box-shadow:10px 0px 15px  rgba(0,0,0,0.5);
+      
+      &.webix_cell{
+        color: $primary-font-colour;
+      }
+      &:focus, &:active{
+          background-color: $primery03 !important;
+          border-radius:$border-radius; 
+      }
+    }
+    .webix_ss_vscroll_footer{
+      border: 0px; 
+    }
+  }
+
+  .webix_ss_vscroll_header{
+    display: none;
+  }
+
+  .webix_dt_editor{
+    select,input{
+        border:none !important;
+        border-radius:0 !important;
+        // color:$primery04-font-color;
+        padding: 0;
+    }
+
+  }
+
+  .webix_drag_over{
+    background-color: $primery03 !important;
+    color: $primary-font-colour;
+    border-color:$primery05;
+    box-shadow:10px 0px 15px  rgba(0,0,0,0.5);
+    
+    &:focus, &:active{
+        background-color: $primery03 !important;
+        border-radius:$border-radius; 
+    }
+  }
+
+  .webix_drag_zone{
+    background-color: $primery03 !important;
+    color: $primary-font-colour;
+    border-color:$primery05;
+    box-shadow:10px 0px 15px  rgba(0,0,0,0.5);
+    border-radius: $border-radius;
+
+    .webix_dd_drag {
+      border-radius: $border-radius;
+      border:0;
+      div{
+        background-color: $primery03 !important;
+        border-color:$primery03 !important;
+
+        strong{
+          font-weight: normal !important;
+        }
+      }
+    } 
+    
+    &:focus, &:active{
+        background-color: $primery03 !important;
+        border-radius:$border-radius; 
+    }
+  }
+
+  .webix_last {
+    .webix_cell{
+      
+      &.webix_drag_over {
+      border-radius: 0px 4px 4px 0px;
+      }
+    }
+  }
+
+.webix_first {
+  .webix_cell{
+    
+      
+    &.webix_drag_over {
+    border-radius:4px 0px 0px 4px ;
+    }
+  }
+}
+
+
+
+.webix_view{
+  border: none;
+  margin-bottom: 25px;
+  height: auto !important;
+  overflow: visible;
+  background-color: $primery02;
+  
+  &.webix_window{
+    &.webix_popup{
+     display: none;   
+    }
+  }  
+  &.webix_list{
+    margin-bottom: 0;
+    
+    .webix_list_item{
+      background-color: $primery03;
+      border:0;
+      color: $primary-font-colour ;
+      &:hover{
+        background-color: $primery02;
+        border:0;
+      }
+      &.webix_selected{
+        background-color: $primery02;
+        border:0;
+        box-shadow: none;
+      }
+    }
+  }
+  &.webix_form{
+    background-color: $primery02;
+  }
+    .webix_vscroll_y, .webix_vscroll_y{
+      overflow-x: hidden;
+      overflow-y: hidden;
+      background-color: $primery02;
+      z-index: -1;
+    }
+  .webix_el_box{
+    height: auto !important;
+
+    select{
+      height: 40px;
+      border: none;
+      color: $primary-font-colour !important;
+    }
+
+    input{
+      height: 40px; 
+      border: none;
+      color: $primary-font-colour !important;
+    &::placeholder{
+      // color:$primery04-font-color;
+    }
+
+    }
+  }
+
+   .webix_ss_header{
+    background-color: $primery02;
+    font-family: $primary-font;
+
+    // FORMS AND FIELDS
+    .webix_hcell{
+      &.webix_ss_filter{
+        select{
+          height: 40px;
+          border: none;
+          color: $primary-font-colour !important;
+
+        }
+
+        input{
+          height: 40px; 
+          border: none;
+          color: $primary-font-colour !important;
+
+        &::placeholder{
+          // color:$primery04-font-color;
+        }
+
+        }
+      }
+    }
+    // FORMS AND FIELDS
+    TD{
+      background-color: $primery02;
+      color: $primery06;
+      border:none;
+      font-family: $primary-font;
+      font-size: $font-size-m;
+    }
+
+    table {
+      border-collapse: initial;
+      border:none ;
+      font-family: $secondary-font;
+    }
+  }
+  .webix_ss_body{
+    overflow: visible;
+
+  .webix_ss_center{
+    background-color: $primery02;
+    color: $primary-font-colour;
+    font-family: $secondary-font;
+    overflow: visible;  
+
+    .webix_ss_center_scroll{
+      width: 100% ;
+      overflow: visible;
+
+        .webix_cell{
+
+          strong{
+            font-weight: normal !important;
+          }
+        &.webix_row_select{
+          background-color: $primery03;
+          color: $primary-font-colour;
+          border-color:$primery05;
+          box-shadow:10px 0px 15px  rgba(0,0,0,0.5);
+        }
+       }
+      table {
+        width: 100%;
+
+      }
+    }
+
+    .webix_column{
+      &.webix_last{
+        .webix_row_select{
+          // box-shadow: inset 2px 0 $primery05;
+          box-shadow: none;
+          border-radius: 0px 4px 4px 0px;
+          box-shadow:7px 0px 12px rgba(0, 0, 0, 0.5);
+        }
+      }
+
+      &.webix_first{
+
+      &.webix_select_mark {
+        text-align: center;
+        
+        .webix_row_select{
+            // box-shadow: inset 2px 0 $primery05;
+            box-shadow: none;
+            border-radius: 4px 0px 0px 4px;
+            box-shadow:6px 0px 15px  rgba(0,0,0,0.5);
+          }
+          
+        }
+      }
+      div{
+        border: none;
+      }
+    } 
+  }
+}
+}
+
+.webix_cell {
+    i{
+        font-size: $font-size-m;
+        color: $primery05
+    }
+}
+
+.webix_ss_center_scroll{
+    .webix_column:nth-child(2) {
+        text-align: center;
+    }
+}
+
+
+
+td.webix_last.webix_last_row .webix_hcell {
+  text-align: center;
+}
+.webix_column.webix_last .webix_cell {
+  text-align: center;
+}

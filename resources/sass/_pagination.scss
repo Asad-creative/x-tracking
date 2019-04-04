@@ -1,0 +1,69 @@
+
+
+//PAGINATION
+.paginate-box{
+  text-align: center;
+  height: auto !important;
+  
+  button{
+
+    &.webix_pager_item {
+      background: transparent;
+      border: 1px solid $primery05;
+      padding: 5px;
+      border-radius: 50%;
+      font-size: $font-size-s;
+      font-family: $primary-font;
+      color:$primary-font-colour;
+      height: 30px;
+      width: 30px;
+
+      &:hover{
+        background: $primery05;
+        color:$primery02;
+      }
+
+     .webix_icon{
+      &.wxi-angle-right {
+        vertical-align: middle;
+      }
+      &.wxi-angle-left {
+        vertical-align: middle;
+      }
+
+      &.wxi-angle-double-right {
+        vertical-align: middle;
+      }
+      &.wxi-angle-double-left {
+        vertical-align: middle;
+      }
+
+      
+     }
+    }
+    &.webix_pager_item_selected{
+      background: $primery05;
+      color:$primery02;
+      height: 30px;
+      width: 30px;
+      padding: 5px;
+      border-radius: 50%;
+      font-size: $font-size-s;
+      font-family: $primary-font;
+      
+      &:active{
+        background: $primery05;
+        color:$primery02;
+
+        &:hover, &:focus{
+          background: $primery05;
+        }
+      }
+      &:hover,&:focus{
+        background: $primery05;
+      }
+    }
+  }
+  
+}
+// PAGINATION

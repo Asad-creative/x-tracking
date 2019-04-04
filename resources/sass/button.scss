@@ -1,5 +1,5 @@
 a.btn,
-button.btn {
+button.btn , .webixtype_btn {
 	padding: $button-padding;
 	font-family: 'Ubuntu', sans-serif;
 	font-size: 14px;
@@ -20,9 +20,11 @@ button.btn {
 }
 
 a.btn-outline,
-button.btn-outline {
+button.btn-outline, .webixtype_btn {
 	background: transparent;
 	border-color: $primary;
+	border-width:1px;
+	border-style: solid;
 	color: $primary;
 	&:hover {
 		background: $primary;
@@ -38,3 +40,55 @@ button.btn-outline {
 		}
 	}
 }
+
+.webixtype_btn{
+	&.btn-primary{
+		background-color: $primery05;
+		color: $secondary-background-colour;
+		border-color: $primery05;
+		border-width:1px;
+		border-style: solid;
+		&:hover{
+			background-color:rgba($primery05, 0.5);
+		}
+	
+	}
+}
+
+.btns-box{
+	button {
+		margin-right: 10px;
+	}
+} 
+
+input.webix_table_checkbox {
+    margin-top: 13px;
+}
+
+.webix_tree_file:before,.webix_tree_folder_open:before,.webix_tree_folder:before{
+color: $primery05;
+}
+
+.webix_tree_close:before, .webix_tree_open:before{
+	color: $primery06;
+}
+
+.webix_tree_folder_open,.webix_tree_file, .webix_tree_folder {
+font-size: $font-size-m;
+}
+.webix_tree_open:before{
+color: transparent;
+background: url(/images/select-arrow.svg?49996c9…) no-repeat right transparent;
+background-size: 18px;
+background-position: 0px 0px;
+}
+
+.webix_tree_close:before{
+	color: transparent;
+    background: url(/images/select-arrow.svg?49996c9…) no-repeat right transparent;
+    background-size: 18px;
+    background-position: 0px 0px;
+	}
+	.webix_tree_close {
+		transform: rotate(-90deg);
+	}

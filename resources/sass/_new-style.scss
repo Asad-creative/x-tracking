@@ -1,5 +1,5 @@
 body{
-  background: $primery02;
+  background: $primery02 !important;
 }
 .navbar{
   background-color: $primery01 !important;
@@ -18,189 +18,19 @@ body{
 }
 
 
-// DATA TABLE
-  #box{
-    .webix_view{
-      border: none;
-      margin-bottom: 25px;
-      height: auto !important;
-      overflow: visible;
-    
-      .webix_ss_header{
-        background-color: $primery02;
-        font-family: $primary-font;
-   // FORMS AND FIELDS
-.webix_hcell{
-  &.webix_ss_filter{
-    select{
-      background: url("../images/select-arrow.svg") no-repeat right  $primery03;
-      -webkit-appearance: none;
-      background-position-x: 96%;
-      border:none;
-      border-radius:4px;
-      color: $primary-font-colour !important;
-      font-family: $secondary-font;
-      font-size: $font-size-m;
-      padding-left: 18px;
-      height: 40px;
-      background-size: 18px; 
-      
-    }
-    
-    input{
-      background-color: $primery03;
-      border:none;
-      border-radius:4px;
-      color: $primary-font-colour !important;
-      font-family: $secondary-font;
-      font-size: $font-size-m;
-      padding-left: 18px;
-      height: 40px; 
-
-      &::placeholder{
-        color:$primery04-font-color;
-      }
-
-    }
-   
+.webix_el_combo span.webix_input_icon, 
+.webix_el_richselect span.webix_input_icon, 
+.webix_el_datepicker span.webix_input_icon, 
+.webix_el_dbldatepicker span.webix_input_icon, 
+.webix_el_colorpicker span.webix_input_icon, 
+.webix_el_search span.webix_input_icon{
+  background: url(/images/select-arrow.svg?49996c92f19455855c88b508ebe5c30e) no-repeat right #414957;
+  background-size: 18px;
+  background-position: 3px 12px;
+  &::before{
+    display: none;
   }
 }
-// FORMS AND FIELDS
-        TD{
-          background-color: $primery02;
-          color: $primery06;
-          border:none;
-          font-family: $primary-font;
-          font-size: $font-size-m;
-        }
-
-        table {
-          border-collapse: initial;
-          border:none ;
-          font-family: $secondary-font;
-        }
-      }
-      .webix_ss_body{
-        overflow: visible;
-
-      .webix_ss_center{
-        background-color: $primery02;
-        color: $primary-font-colour;
-        font-family: $secondary-font;
-        overflow: visible;  
-
-        .webix_ss_center_scroll{
-          width: 100% ;
-          overflow: visible;
-
-            .webix_cell{
-
-            &.webix_row_select{
-              background-color: $primery03;
-              color: $primary-font-colour;
-              border-color:$primery05;
-              box-shadow:10px 0px 15px  rgba(0,0,0,0.5);
-            }
-           }
-          table {
-            width: 100%;
-
-          }
-        }
-
-        .webix_column{
-          &.webix_last{
-            .webix_row_select{
-              // box-shadow: inset 2px 0 $primery05;
-              box-shadow: none;
-              border-radius: 0px 5px 5px 0px;
-              box-shadow:7px 0px 12px rgba(0, 0, 0, 0.5);
-            }
-          }
-
-          &.webix_first{
-
-          &.webix_select_mark {
-            text-align: center;
-            
-            .webix_row_select{
-                // box-shadow: inset 2px 0 $primery05;
-                box-shadow: none;
-                border-radius: 5px 0px 0px 5px;
-                box-shadow:6px 0px 15px  rgba(0,0,0,0.5);
-              }
-              
-            }
-          }
-          div{
-            border: none;
-          }
-        } 
-      }
-    }
-    }
-  }
-
-// DATA TABLE
-
-//PAGINATION
-.paginate-box{
-  text-align: center;
-  
-  button{
-
-    &.webix_pager_item {
-      background: transparent;
-      border: 1px solid $primery05;
-      padding: 5px;
-      border-radius: 50%;
-      font-size: $font-size-s;
-      font-family: $primary-font;
-      color:$primary-font-colour;
-
-      &:hover{
-        background: $primery05;
-        border: 1px solid $primery05;
-        padding: 5px;
-        border-radius: 50%;
-        font-size: $font-size-s;
-        font-family: $primary-font;
-        color:$primery02;
-      }
-
-     .webix_icon{
-      &.wxi-angle-right {
-        vertical-align: middle;
-      }
-      &.wxi-angle-left {
-        vertical-align: middle;
-      }
-     }
-    }
-    &.webix_pager_item_selected{
-      background: $primery05;
-      border: 1px solid $primery05;
-      padding: 5px;
-      border-radius: 50%;
-      font-size: $font-size-s;
-      font-family: $primary-font;
-      color:$primery02;
-      &:active{
-        background: $primery05;
-        border: 1px solid $primery05;
-        padding: 5px;
-        border-radius: 50%;
-        font-size: $font-size-s;
-        font-family: $primary-font;
-        color:$primery02;
-      }
-    }
-  }
-  
-}
-// PAGINATION
-
-
 
 
 
@@ -268,3 +98,4 @@ div#tree-table {
 
   }
 }
+

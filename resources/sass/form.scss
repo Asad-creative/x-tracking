@@ -1,0 +1,32 @@
+//INPUT AND SELECTS
+select{
+    background: url("../images/select-arrow.svg") no-repeat right  $primery03;
+    -webkit-appearance: none;
+    background-position-x: 96%;
+    border:none;
+    border-radius:4px !important;
+    color: $primary-font-colour ;
+    font-family: $secondary-font;
+    font-size: $font-size-m;
+    padding-left: 18px !important;
+    background-size: 18px; 
+
+  }
+
+  input{
+    background-color: $primery03!important;
+    border:none;
+    border-radius:4px !important;
+    color: $primary-font-colour ;
+    font-family: $secondary-font;
+    font-size: $font-size-m;
+    padding-left: 18px  !important;
+
+    &::placeholder{
+    // color:$primery04-font-color;
+  }
+
+  }
+
+  //INPUT AND SELECTS
+

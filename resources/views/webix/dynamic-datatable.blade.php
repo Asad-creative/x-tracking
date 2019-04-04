@@ -1,23 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-	<link rel="stylesheet" href="{{ asset('css/proteus.css') }}" type="text/css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-	<style>
+		<style>
 		.hover-pointer{
 			cursor: pointer;
 		}
 	</style>
-    <script src="{{ asset('js/webix.js') }}" type="text/javascript"></script>
+
 
     	<div style="margin-left: 11%;">
-    		<a class="btn btn-danger" href="{{ url('webix/datatable') }}">Client Side Data</a>
-    		<a class="btn btn-danger" href="{{ url('webix/dynamic/datatable') }}">Dynamic Data</a>
+    		<a class="btn btn-primary" href="{{ url('webix/datatable') }}">Client Side Data</a>
+    		<a class="btn btn-outline dark" href="{{ url('webix/dynamic/datatable') }}">Dynamic Data</a>
     	</div>
     	<br>
 		<div id="box" style="width:1300px;height:470px;margin: 0 auto;"></div>
 		<div id="my_form" style="width:1300px;margin: 0 auto;"></div>
-		<div id="paging_here" style="margin-left: 10%;"></div>
 
     <script type="text/javascript" charset="utf-8">
     	
@@ -41,7 +38,7 @@
 		    editaction:"dblclick",
 		    pager:{
 		        template:"{common.first()} {common.prev()} {common.pages()} {common.next()} {common.last()}",
-		        container:"paging_here",
+						css:"paginate-box",
 		        size:10,
 		        group:5
 		    },
@@ -144,41 +141,43 @@
 		      		cols:[
 			      		
 				      	{	
-				      		view:"text", name:"title", placeholder:"Title", inputWidth:250
+				      		view:"text", name:"title", placeholder:"Title", 
 				      	},
 				      	{	
-				      		view:"text", name:"team", placeholder:"Team", inputWidth:200
+				      		view:"text", name:"team", placeholder:"Team", 
 				      	},
 				      	{	
-				      		view:"text", name:"client", placeholder:"Client", inputWidth:120
+				      		view:"text", name:"client", placeholder:"Client", 
 				      	},
 				      	{	
-				      		view:"combo", options: [{ id:'saif', value:'Saif' },{ id:'asad', value:'Asadullah' },'Zeeshan','Shahid'], name:"pm", inputWidth:120
+				      		view:"combo", options: [{ id:'saif', value:'Saif' },{ id:'asad', value:'Asadullah' },'Zeeshan','Shahid'], name:"pm", 
 				      	},
 				      	{	
-				      		view:"select", options:['Pending','Approved','Send'], name:"status",  inputWidth:120
+				      		view:"select", options:['Pending','Approved','Send'], name:"status", 
 				      	},
 				      	{	
-				      		view:"text", name:"deadline", placeholder:"Deadline", inputWidth:150
+				      		view:"text", name:"deadline", placeholder:"Deadline",
 				      	},
 				      	{	
-				      		view:"text", name:"created_at", placeholder:"Date Sent", inputWidth:150
+				      		view:"text", name:"created_at", placeholder:"Date Sent", 
 				      	}
 				    ]
 				},
 				{
-		      		cols:[
-		      			{ 
-		      				view:"button", value:"Add",click:"window.add_item()"
-		      			}, 
-		      			{ 
-		      				view:"button", value:"Remove selected",click:"window.remove_items()"
-		      			}
-		      		]
-		      	}
+					rows:[
+							{
+		      		cols:[	
+		      			
+									
+									{ template:"<div class='btns-box'><button class='btn btn-primary' onClick='window.add_item()'>Add</button><button onClick='window.remove_items()' class='btn btn-outline dark'>Remove selected</button></div> ", click:"window.add_item()" ,inputWidth:100},			
+							
+		     			
+		    		]
+		    	}
+					]},
+		
 		    ]
 		});
-
 		add_item = function(){
 		  var data = {
 		    title:		$$('formAddRow').getValues().title,

@@ -14,10 +14,11 @@
 @import '~bootstrap/scss/bootstrap';
 
 @import 'new-style';
+@import 'webix-custom';
 @import 'button';
 
 @import 'typography';
-
+@import '_pagination';
 @import 'style-guide';
 
 // @import 'webix';

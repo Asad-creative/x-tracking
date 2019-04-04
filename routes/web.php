@@ -129,6 +129,14 @@ Route::get('/treetable', function () {
 });
 
 
+
+// Tree Table
+Route::get('/table', function () {
+    return view('webix.dynamic-datatable');
+});
+
+
+
 //Pagination
 Route::get('/pagination', function () {
     return view('webix.pagination');
