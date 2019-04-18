@@ -13,6 +13,8 @@
         "@babel/preset-react": "^7.0.0",
         "axios": "^0.18",
         "bootstrap": "^4.0.0",
+        "browser-sync": "^2.26.3",
+        "browser-sync-webpack-plugin": "^2.0.1",
         "cross-env": "^5.1",
         "eslint": "^5.15.1",
         "jquery": "^3.2",
@@ -36,6 +38,7 @@
         "postcss-css-variables": "^0.12.0",
         "react-highcharts": "^16.0.2",
         "react-router-dom": "^5.0.0",
+        "tinymce": "^5.0.3",
         "webix": "^6.2.1"
     }
 }

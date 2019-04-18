@@ -11,5 +11,14 @@ const mix = require('laravel-mix');
  |
  */
 
+var paths = {
+   TinyMCE: "./node_modules/tinymce/",
+};
+
+
+mix.browserSync('http://127.0.0.1:8000');
 mix.react('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css');
+
+   mix.copy(paths.TinyMCE + "tinymce.min.js", "public/js/tinymce.min.js");
+   mix.copy(paths.TinyMCE + "themes", "public/js/themes");

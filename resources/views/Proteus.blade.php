@@ -80,6 +80,12 @@
                       <td>-</td>
                       <td>-</td>
                     </tr>
+                    <tr>
+                      <th scope="row">8</th>
+                      <td> TinyMCE</td>
+                      <td><a href="{{ url('/tinymce') }}">Click Here</a></td>
+                      <td>-</td>
+                    </tr>
                   </tbody>
                 </table>
                 <!-- <div class="title m-b-md">Proteus</div>

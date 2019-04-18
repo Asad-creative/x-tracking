@@ -79,6 +79,10 @@ Route::get('ck-editor', function () {
 });
 
 
+Route::get('tinymce', function () {
+    return view('tinymce');
+});
+
 // React Routes starts here
 Route::group([
 	'prefix' => 'react'
